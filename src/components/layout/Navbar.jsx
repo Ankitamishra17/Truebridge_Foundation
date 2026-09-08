@@ -1,56 +1,69 @@
-import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Menu, X, HeartHandshake, Home, Info, Briefcase, Calendar, Image, Mail, Heart } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import DonateModal from '../common/DonateModal.jsx'
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  Menu,
+  X,
+  HeartHandshake,
+  Home,
+  Info,
+  Briefcase,
+  Calendar,
+  Image,
+  Mail,
+  Heart,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import DonateModal from "../common/DonateModal.jsx";
 
 const links = [
-  { to: '/', label: 'Home', icon: Home },
-  { to: '/about', label: 'About', icon: Info },
-  { to: '/programs', label: 'Our Work', icon: Briefcase },
-  { to: '/events', label: 'Events', icon: Calendar },
-  { to: '/gallery', label: 'Gallery', icon: Image },
-  { to: '/contact', label: 'Contact', icon: Mail },
-]
+  { to: "/", label: "Home", icon: Home },
+  { to: "/about", label: "About", icon: Info },
+  { to: "/programs", label: "Our Work", icon: Briefcase },
+  { to: "/events", label: "Events", icon: Calendar },
+  { to: "/gallery", label: "Gallery", icon: Image },
+  { to: "/contact", label: "Contact", icon: Mail },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [donateOpen, setDonateOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [donateOpen, setDonateOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 12)
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+      setScrolled(window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const openDonate = () => {
-    setOpen(false)
-    setDonateOpen(true)
-  }
+    setOpen(false);
+    setDonateOpen(true);
+  };
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(6,59,92,0.08)]'
-          : 'bg-white border-b border-[#EDF1F5]'
+          ? "bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(6,59,92,0.08)]"
+          : "bg-white border-b border-[#EDF1F5]"
       }`}
     >
       <div
         className={`max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between gap-6 transition-[height] duration-300 ${
-          scrolled ? 'h-[64px]' : 'h-[78px]'
+          scrolled ? "h-[64px]" : "h-[78px]"
         }`}
       >
         <NavLink
@@ -63,11 +76,14 @@ export default function Navbar() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className={`relative rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 ${
-              scrolled ? 'w-9 h-9' : 'w-10 h-10'
+              scrolled ? "w-9 h-9" : "w-10 h-10"
             }`}
           >
             <span className="absolute inset-0 rounded-full bg-[#0F8B8D]/30 scale-100 group-hover:scale-150 group-hover:opacity-0 opacity-60 transition-all duration-500" />
-            <HeartHandshake size={scrolled ? 17 : 19} className="relative text-white transition-all duration-300" />
+            <HeartHandshake
+              size={scrolled ? 17 : 19}
+              className="relative text-white transition-all duration-300"
+            />
           </motion.span>
           <span className="leading-tight">
             <span className="block font-display font-semibold text-[18px] text-[#063B5C]">
@@ -75,7 +91,7 @@ export default function Navbar() {
             </span>
             <span
               className={`block text-[11px] tracking-wide text-[#64748B] overflow-hidden transition-all duration-300 ${
-                scrolled ? 'max-h-0 opacity-0' : 'max-h-4 opacity-100'
+                scrolled ? "max-h-0 opacity-0" : "max-h-4 opacity-100"
               }`}
             >
               Empowerment Echo Foundation
@@ -88,12 +104,12 @@ export default function Navbar() {
             <NavLink
               key={l.to}
               to={l.to}
-              end={l.to === '/'}
+              end={l.to === "/"}
               className={({ isActive }) =>
                 `relative px-4 py-2 text-[15px] font-medium font-body transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 rounded-md ${
                   isActive
-                    ? 'text-[#063B5C]'
-                    : 'text-[#17324D]/75 hover:text-[#063B5C]'
+                    ? "text-[#063B5C]"
+                    : "text-[#17324D]/75 hover:text-[#063B5C]"
                 }`
               }
             >
@@ -103,7 +119,11 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                       className="absolute left-4 right-4 -bottom-0.5 h-[2px] bg-[#FF6B4A] rounded-full"
                     />
                   )}
@@ -124,12 +144,12 @@ export default function Navbar() {
         <button
           className="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#063B5C] rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
-              key={open ? 'close' : 'open'}
+              key={open ? "close" : "open"}
               initial={{ opacity: 0, rotate: -45 }}
               animate={{ opacity: 1, rotate: 0 }}
               exit={{ opacity: 0, rotate: 45 }}
@@ -165,10 +185,10 @@ export default function Navbar() {
               className="lg:hidden fixed inset-0 bg-[#032D46]/40 backdrop-blur-[2px] z-40"
             />
             <motion.nav
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 320, damping: 32 }}
               className="lg:hidden fixed inset-y-0 right-0 z-50 w-[78%] max-w-xs bg-white shadow-2xl flex flex-col"
             >
               <div className="flex items-center justify-between px-5 h-[64px] border-b border-[#EDF1F5] flex-shrink-0">
@@ -199,17 +219,20 @@ export default function Navbar() {
                   >
                     <NavLink
                       to={l.to}
-                      end={l.to === '/'}
+                      end={l.to === "/"}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
                         `flex items-center gap-3 px-3 py-3 rounded-xl text-[16px] font-medium font-body transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 ${
                           isActive
-                            ? 'bg-[#EAF8F7] text-[#063B5C]'
-                            : 'text-[#17324D]/80 hover:bg-[#FAFAF8]'
+                            ? "bg-[#EAF8F7] text-[#063B5C]"
+                            : "text-[#17324D]/80 hover:bg-[#FAFAF8]"
                         }`
                       }
                     >
-                      <l.icon size={18} className="text-[#0F8B8D] flex-shrink-0" />
+                      <l.icon
+                        size={18}
+                        className="text-[#0F8B8D] flex-shrink-0"
+                      />
                       {l.label}
                     </NavLink>
                   </motion.div>
@@ -219,7 +242,10 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.25, delay: 0.05 + links.length * 0.04 }}
+                transition={{
+                  duration: 0.25,
+                  delay: 0.05 + links.length * 0.04,
+                }}
                 className="px-5 py-4 border-t border-[#EDF1F5] flex-shrink-0"
               >
                 <button
@@ -237,5 +263,5 @@ export default function Navbar() {
 
       <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
     </header>
-  )
+  );
 }
