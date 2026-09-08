@@ -355,7 +355,7 @@
 import HeroSection from "../components/work/HeroSection.jsx";
 import OurProgram from "../components/work/OurProgram.jsx"
 import Spotlight from "../components/work/SpotLight.jsx";
-import WorkInAction from "../components/work/workInAction.jsx";
+import WorkInAction from "../components/work/WorkInAction.jsx";
 
 
 export default function OurWork() {
