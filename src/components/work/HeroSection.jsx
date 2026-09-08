@@ -4,9 +4,19 @@ import { ArrowUpRight } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white min-h-[calc(100vh-100px)]">
-      {/* Background Image */}
+      {/* Background Image — mobile */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-right"
+        className="sm:hidden absolute inset-0 bg-no-repeat bg-right"
+        style={{
+          backgroundImage: "url('/work_banner_mobile.png')",
+          backgroundSize: "cover",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Background Image — desktop */}
+      <div
+        className="hidden sm:block absolute inset-0 bg-no-repeat bg-right"
         style={{
           backgroundImage: "url('/work_banner.png')",
           backgroundSize: "auto 100%",
@@ -14,9 +24,19 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* White Gradient - Left to Right */}
+      {/* White Gradient - Left to Right, mobile */}
       <div
-        className="absolute inset-0"
+        className="sm:hidden absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* White Gradient - Left to Right, desktop */}
+      <div
+        className="hidden sm:block absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.82) 45%, rgba(255,255,255,0.35) 68%, rgba(255,255,255,0) 100%)",
