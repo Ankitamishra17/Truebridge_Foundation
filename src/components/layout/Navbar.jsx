@@ -48,26 +48,36 @@ export default function Navbar() {
           : 'bg-white border-b border-[#EDF1F5]'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 h-[78px] flex items-center justify-between gap-6">
+      <div
+        className={`max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between gap-6 transition-[height] duration-300 ${
+          scrolled ? 'h-[64px]' : 'h-[78px]'
+        }`}
+      >
         <NavLink
           to="/"
-          className="group flex items-center gap-2.5 flex-shrink-0"
+          className="group flex items-center gap-2.5 flex-shrink-0 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
           onClick={() => setOpen(false)}
         >
           <motion.span
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-10 h-10 rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3"
+            className={`relative rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 ${
+              scrolled ? 'w-9 h-9' : 'w-10 h-10'
+            }`}
           >
             <span className="absolute inset-0 rounded-full bg-[#0F8B8D]/30 scale-100 group-hover:scale-150 group-hover:opacity-0 opacity-60 transition-all duration-500" />
-            <HeartHandshake size={19} className="relative text-white" />
+            <HeartHandshake size={scrolled ? 17 : 19} className="relative text-white transition-all duration-300" />
           </motion.span>
           <span className="leading-tight">
             <span className="block font-display font-semibold text-[18px] text-[#063B5C]">
               Truebridge
             </span>
-            <span className="block text-[11px] tracking-wide text-[#64748B]">
+            <span
+              className={`block text-[11px] tracking-wide text-[#64748B] overflow-hidden transition-all duration-300 ${
+                scrolled ? 'max-h-0 opacity-0' : 'max-h-4 opacity-100'
+              }`}
+            >
               Empowerment Echo Foundation
             </span>
           </span>
@@ -80,10 +90,10 @@ export default function Navbar() {
               to={l.to}
               end={l.to === '/'}
               className={({ isActive }) =>
-                `relative px-4 py-2 rounded-full text-[15px] font-medium font-body transition-colors duration-200 ${
+                `relative px-4 py-2 text-[15px] font-medium font-body transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 rounded-md ${
                   isActive
                     ? 'text-[#063B5C]'
-                    : 'text-[#17324D]/75 hover:text-[#063B5C] hover:bg-[#EAF8F7]'
+                    : 'text-[#17324D]/75 hover:text-[#063B5C]'
                 }`
               }
             >
@@ -92,9 +102,9 @@ export default function Navbar() {
                   <span className="relative z-10">{l.label}</span>
                   {isActive && (
                     <motion.span
-                      layoutId="nav-pill"
+                      layoutId="nav-underline"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      className="absolute inset-0 bg-[#EAF8F7] rounded-full"
+                      className="absolute left-4 right-4 -bottom-0.5 h-[2px] bg-[#FF6B4A] rounded-full"
                     />
                   )}
                 </>
@@ -105,14 +115,14 @@ export default function Navbar() {
 
         <button
           onClick={openDonate}
-          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold hover:bg-[#F0572F] transition-colors flex-shrink-0"
+          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold transition-all duration-200 hover:brightness-105 hover:shadow-[0_10px_24px_-6px_rgba(255,107,74,0.5)] hover:-translate-y-0.5 outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40 flex-shrink-0"
         >
           <Heart size={15} className="fill-white" />
           Donate Now
         </button>
 
         <button
-          className="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#063B5C]"
+          className="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#063B5C] rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -150,7 +160,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 top-[78px] bg-[#032D46]/30 backdrop-blur-[2px] z-40"
+              className="lg:hidden fixed inset-0 top-[64px] bg-[#032D46]/30 backdrop-blur-[2px] z-40"
             />
             <motion.nav
               initial={{ height: 0, opacity: 0 }}
@@ -172,7 +182,7 @@ export default function Navbar() {
                       end={l.to === '/'}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-3 rounded-xl text-[16px] font-medium font-body transition-colors ${
+                        `flex items-center gap-3 px-3 py-3 rounded-xl text-[16px] font-medium font-body transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 ${
                           isActive
                             ? 'bg-[#EAF8F7] text-[#063B5C]'
                             : 'text-[#17324D]/80 hover:bg-[#FAFAF8]'
@@ -192,7 +202,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={openDonate}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold hover:bg-[#F0572F] transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#FF6B4A] text-white text-[15px] font-semibold hover:brightness-105 transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40"
                   >
                     <Heart size={15} className="fill-white" />
                     Donate Now

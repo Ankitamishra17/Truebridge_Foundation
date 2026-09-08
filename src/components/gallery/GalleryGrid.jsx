@@ -99,7 +99,7 @@ function Lightbox({ items, index, onClose, onNavigate }) {
       <button
         onClick={onClose}
         aria-label="Close"
-        className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+        className="absolute top-5 right-5 w-10 h-10 rounded-md bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
       >
         <X size={20} />
       </button>
@@ -110,7 +110,7 @@ function Lightbox({ items, index, onClose, onNavigate }) {
           onNavigate(-1)
         }}
         aria-label="Previous photo"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-md bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
       >
         <ChevronLeft size={20} />
       </button>
@@ -120,7 +120,7 @@ function Lightbox({ items, index, onClose, onNavigate }) {
           onNavigate(1)
         }}
         aria-label="Next photo"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-md bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
       >
         <ChevronRight size={20} />
       </button>
@@ -179,7 +179,7 @@ export default function Gallery() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-[13.5px] font-semibold border transition-colors ${
+              className={`px-4 py-2 rounded-md text-[13.5px] font-semibold border transition-colors ${
                 activeCategory === cat
                   ? 'bg-[#063B5C] text-white border-[#063B5C]'
                   : 'bg-white text-[#64748B] border-[#EDF1F5] hover:border-[#0F8B8D]/40'
@@ -216,7 +216,7 @@ export default function Gallery() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#032D46]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-left">
                     <span
-                      className="self-start mb-2 px-2 py-0.5 rounded-full text-[10px] font-semibold"
+                      className="self-start mb-2 px-2 py-0.5 rounded-md text-[10px] font-semibold"
                       style={{ backgroundColor: style.bg, color: style.text }}
                     >
                       {photo.type}

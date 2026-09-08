@@ -131,17 +131,25 @@ export default function Hero() {
               <a
                 href="/about"
                 className="
-                  text-[15px]
-                  font-semibold
-                  text-[#032D46]
-                  hover:text-[#0F8B8D]
-                  transition-colors
-                  underline
-                  underline-offset-4
-                  decoration-[#032D46]/30
-                "
+    inline-flex
+    items-center
+    justify-center
+    px-7
+    py-3.5
+    rounded-md
+    text-[14px]
+    sm:text-[15px]
+    font-semibold
+    text-white
+    bg-[#063B5C]
+    hover:bg-[#0F8B8D]
+    transition-all
+    duration-300
+    hover:-translate-y-0.5
+    hover:shadow-md
+  "
               >
-                Read our story
+                Read Our Story
               </a>
             </div>
           </motion.div>

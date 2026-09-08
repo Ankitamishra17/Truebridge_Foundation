@@ -15,7 +15,7 @@ export default function OurStory() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
+            <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D] -mt-56">
               OUR STORY
             </p>
             <h2 className="mt-3 font-display text-[30px] sm:text-[38px] font-bold leading-[1.15] text-[#063B5C]">
@@ -37,11 +37,11 @@ export default function OurStory() {
               neighbourhood at a time.
             </p>
 
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <PrimaryButton to="/about" variant="coral" showArrow>
                 Know More About Us
               </PrimaryButton>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Photo collage */}

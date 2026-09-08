@@ -90,7 +90,7 @@ function TypeTag({ type }) {
   const style = typeStyles[type] ?? typeStyles['Civic Program']
   return (
     <span
-      className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-semibold"
+      className="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-semibold"
       style={{ backgroundColor: style.bg, color: style.text }}
     >
       {type}
@@ -121,18 +121,18 @@ function EventGallery({ images, title, className = '' }) {
           <button
             onClick={go(-1)}
             aria-label="Previous photo"
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
           >
             <ChevronLeft size={16} />
           </button>
           <button
             onClick={go(1)}
             aria-label="Next photo"
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
           >
             <ChevronRight size={16} />
           </button>
-          <span className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full bg-black/50 text-white text-[11px] font-semibold">
+          <span className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-1 rounded-md bg-black/50 text-white text-[11px] font-semibold">
             <Images size={11} />
             {index + 1}/{images.length}
           </span>
@@ -168,12 +168,7 @@ function FeaturedEvent({ event }) {
           {event.place}
         </p>
         <p className="mt-4 text-[15px] leading-relaxed text-[#64748B]">{event.body}</p>
-        <a
-          href="#"
-          className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#0F8B8D] hover:gap-2.5 transition-all w-fit"
-        >
-          Read full story <ArrowRight size={15} />
-        </a>
+        
       </div>
     </motion.article>
   )
@@ -237,7 +232,7 @@ export default function EventsGrid() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-[13.5px] font-semibold border transition-colors ${
+                className={`px-4 py-2 rounded-md text-[13.5px] font-semibold border transition-colors ${
                   activeCategory === cat
                     ? 'bg-[#063B5C] text-white border-[#063B5C]'
                     : 'bg-white text-[#63748B] border-[#EDF1F5] hover:border-[#0F8B8D]/40'

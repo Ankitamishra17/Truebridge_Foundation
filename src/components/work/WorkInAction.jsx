@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 const photos = [
@@ -8,6 +9,34 @@ const photos = [
 ]
 
 export default function WorkInAction() {
+  const scrollerRef = useRef(null)
+  const itemRefs = useRef([])
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handleScroll = () => {
+    const el = scrollerRef.current
+    if (!el) return
+    // Find whichever card's centre is closest to the scroller's centre
+    const scrollerCentre = el.scrollLeft + el.clientWidth / 2
+    let closest = 0
+    let minDist = Infinity
+    itemRefs.current.forEach((item, i) => {
+      if (!item) return
+      const itemCentre = item.offsetLeft + item.clientWidth / 2
+      const dist = Math.abs(itemCentre - scrollerCentre)
+      if (dist < minDist) {
+        minDist = dist
+        closest = i
+      }
+    })
+    setActiveIndex(closest)
+  }
+
+  const goTo = (i) => {
+    const item = itemRefs.current[i]
+    if (item) item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+  }
+
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
@@ -30,14 +59,35 @@ export default function WorkInAction() {
           </a>
         </div>
 
-        <div className="mt-10 flex sm:grid sm:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
-          {photos.map((p) => (
-            <div
+        <div className="relative mt-10">
+          <div
+            ref={scrollerRef}
+            onScroll={handleScroll}
+            className="flex sm:grid sm:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-5 -mx-5 px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
+          >
+            {photos.map((p, i) => (
+              <div
+                key={p.alt}
+                ref={(el) => (itemRefs.current[i] = el)}
+                className="snap-center sm:snap-align-none flex-shrink-0 w-full sm:w-auto aspect-[3/4] rounded-2xl overflow-hidden bg-[#EDF1F5]"
+              >
+                <img src={p.src} alt={p.alt} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll position dots, mobile only */}
+        <div className="mt-5 flex sm:hidden items-center justify-center gap-2">
+          {photos.map((p, i) => (
+            <button
               key={p.alt}
-              className="snap-start flex-shrink-0 w-[62%] xs:w-[48%] sm:w-auto aspect-[3/4] rounded-2xl overflow-hidden bg-[#EDF1F5]"
-            >
-              <img src={p.src} alt={p.alt} className="w-full h-full object-cover" />
-            </div>
+              onClick={() => goTo(i)}
+              aria-label={`Go to photo ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                activeIndex === i ? 'w-6 bg-[#0F8B8D]' : 'w-1.5 bg-[#EDF1F5]'
+              }`}
+            />
           ))}
         </div>
       </div>

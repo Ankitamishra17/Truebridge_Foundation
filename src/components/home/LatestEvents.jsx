@@ -31,7 +31,7 @@ export default function LatestEvents() {
   }
 
   return (
-    <section className="bg-[#FAFAF8]">
+    <section className="bg-[#ffffff]">
       <Container className="py-16 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Events column */}

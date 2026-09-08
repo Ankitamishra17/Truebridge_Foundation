@@ -73,7 +73,8 @@ export default function ContactHero() {
                text-[34px] sm:text-[40px]
                 leading-[1.1]
                 font-semibold
-                max-w-2xl
+                max-w-[200px]
+                sm:max-w-md
                 text-[#032D46]
               "
             >

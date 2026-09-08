@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function EventsHero() {
   return (
-    <section className="relative overflow-hidden bg-[#FFF9F3] min-h-[calc(100vh-100px)]">
+    <section className="relative overflow-hidden bg-white min-h-[calc(100vh-100px)]">
       {/* Background Image — mobile */}
       <div
         className="sm:hidden absolute inset-0 bg-no-repeat bg-right"
@@ -33,16 +33,6 @@ export default function EventsHero() {
         aria-hidden="true"
       />
 
-      {/* Left white/cream overlay for text readability — desktop */}
-      {/* <div
-        className="hidden sm:block absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(255,249,243,1) 0%, rgba(255,249,243,0.98) 30%, rgba(255,249,243,0.78) 48%, rgba(255,249,243,0.15) 72%, rgba(255,249,243,0) 100%)",
-        }}
-        aria-hidden="true"
-      /> */}
-
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center w-full">
@@ -68,10 +58,19 @@ export default function EventsHero() {
             </div>
 
             {/* Heading */}
-            <h1 className="font-display text-[34px] sm:text-[40px] leading-[1.1] font-semibold text-[#063B5C]">
+            <h1
+              className="
+              font-display
+              text-[34px] sm:text-[40px]
+              leading-[1.35] sm:leading-[1.4] lg:leading-[1.1]
+              font-semibold
+              text-[#063B5C]
+              max-w-[280px] sm:max-w-[320px] lg:max-w-none
+            "
+            >
               Moments That Create
               <br />
-              Lasting <span className="text-[#0F8B8D] ">Change</span>
+              Lasting <span className="text-[#0F8B8D]">Change</span>
             </h1>
 
             {/* Description */}
