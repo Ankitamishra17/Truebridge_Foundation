@@ -15,10 +15,13 @@ export default function OurStory() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D] -mt-56">
-              OUR STORY
-            </p>
-            <h2 className="mt-3 font-display text-[30px] sm:text-[38px] font-bold leading-[1.15] text-[#063B5C]">
+            <div className="flex items-center gap-2  sm:-mt-56">
+              <span className="w-6 h-px bg-[#FF6B4A]" />
+              <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
+                OUR STORY
+              </p>
+            </div>
+            <h2 className="mt-4 font-display text-[30px] sm:text-[38px] font-bold leading-[1.15] text-[#063B5C]">
               A Journey of Hope and Action
             </h2>
 
@@ -37,11 +40,17 @@ export default function OurStory() {
               neighbourhood at a time.
             </p>
 
-            {/* <div className="mt-8">
+            <div className="mt-8 flex items-center gap-5">
               <PrimaryButton to="/about" variant="coral" showArrow>
                 Know More About Us
               </PrimaryButton>
-            </div> */}
+              <div className="hidden sm:flex flex-col leading-tight">
+                <span className="font-display text-[14px] font-semibold text-[#063B5C]">
+                  Neeraj & Arun Dubey
+                </span>
+                <span className="text-[12.5px] text-[#64748B]">Founders, Truebridge</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Photo collage */}
@@ -50,32 +59,49 @@ export default function OurStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="grid grid-cols-2 gap-4"
+            className="relative"
           >
-            <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/10]">
-              <ImageWithFallback
-                src="/image7.jpeg"
-                alt="Children at a Truebridge community event, smiling together"
-                className="w-full h-full"
-                rounded="rounded-none"
-              />
+            {/* Decorative glow behind the collage */}
+            <span
+              className="pointer-events-none absolute -top-8 -right-8 w-56 h-56 rounded-full opacity-30 blur-3xl"
+              style={{ background: '#0F8B8D' }}
+              aria-hidden="true"
+            />
+
+            <div className="relative grid grid-cols-2 gap-4">
+              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/10] shadow-lg shadow-[#0F8B8D]/10 group">
+                <ImageWithFallback
+                  src="/image7.jpeg"
+                  alt="Children at a Truebridge community event, smiling together"
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  rounded="rounded-none"
+                />
+              </div>
+
+              <div className="rounded-2xl overflow-hidden aspect-square shadow-lg shadow-[#0F8B8D]/10 group">
+                <ImageWithFallback
+                  src="/image6.jpeg"
+                  alt="Hands joined together in unity at a community gathering"
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  rounded="rounded-none"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden aspect-square shadow-lg shadow-[#0F8B8D]/10 group">
+                <ImageWithFallback
+                  src="/image12.jpeg"
+                  alt="A doctor checking on an elderly woman at a Truebridge health camp"
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  rounded="rounded-none"
+                />
+              </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <ImageWithFallback
-                src="/image6.jpeg"
-                alt="Hands joined together in unity at a community gathering"
-                className="w-full h-full"
-                rounded="rounded-none"
-              />
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <ImageWithFallback
-                src="/image12.jpeg"
-                alt="A doctor checking on an elderly woman at a Truebridge health camp"
-                className="w-full h-full"
-                rounded="rounded-none"
-              />
+            {/* Founding place badge */}
+            <div className="absolute -bottom-5 -left-5 hidden sm:flex items-center gap-2 bg-white rounded-2xl shadow-lg px-4 py-3">
+              <span className="w-2 h-2 rounded-full bg-[#FF6B4A]" />
+              <p className="text-[13px] font-semibold text-[#063B5C] whitespace-nowrap">
+                Founded in Shahdara, Delhi NCR
+              </p>
             </div>
           </motion.div>
         </div>

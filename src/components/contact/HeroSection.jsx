@@ -23,7 +23,7 @@ export default function ContactHero() {
       />
 
       {/* White Gradient Overlay — mobile */}
- <div
+      <div
         className="sm:hidden absolute inset-0"
         style={{
           background:
@@ -32,15 +32,17 @@ export default function ContactHero() {
         aria-hidden="true"
       />
 
-      {/* White Gradient Overlay — desktop */}
-      {/* <div
+      {/* White Gradient Overlay — desktop (this was missing before, so the
+          text and icon circles sat directly on the photo with nothing behind
+          them for contrast) */}
+      <div
         className="hidden sm:block absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.75) 40%, rgba(255,255,255,0.05) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.35) 65%, rgba(255,255,255,0) 85%)",
         }}
         aria-hidden="true"
-      /> */}
+      />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">
@@ -108,20 +110,27 @@ export default function ContactHero() {
             className="
               mt-2
               sm:mt-4
-              flex
+              inline-flex
               flex-wrap
               gap-x-8
               gap-y-5
-              border-t
-              border-[#032D46]/10
-              pt-6
-              pb-8
+              bg-white/90
+              backdrop-blur-sm
+              rounded-2xl
+              shadow-[0_8px_30px_rgba(3,45,70,0.12)]
+              border
+              border-white
+              px-5
+              sm:px-7
+              py-5
+              sm:py-6
+              mb-8
             "
           >
             {/* Phone */}
             <div className="flex items-center gap-3">
-              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D]/10 flex items-center justify-center flex-shrink-0">
-                <Phone size={16} className="text-[#0F8B8D]" />
+              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D] flex items-center justify-center flex-shrink-0 shadow-sm">
+                <Phone size={16} className="text-white" />
               </span>
 
               <div>
@@ -137,8 +146,8 @@ export default function ContactHero() {
 
             {/* Email */}
             <div className="flex items-center gap-3">
-              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D]/10 flex items-center justify-center flex-shrink-0">
-                <Mail size={16} className="text-[#0F8B8D]" />
+              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D] flex items-center justify-center flex-shrink-0 shadow-sm">
+                <Mail size={16} className="text-white" />
               </span>
 
               <div>
@@ -154,8 +163,8 @@ export default function ContactHero() {
 
             {/* Location */}
             <div className="flex items-center gap-3">
-              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D]/10 flex items-center justify-center flex-shrink-0">
-                <MapPin size={16} className="text-[#0F8B8D]" />
+              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0F8B8D] flex items-center justify-center flex-shrink-0 shadow-sm">
+                <MapPin size={16} className="text-white" />
               </span>
 
               <div>

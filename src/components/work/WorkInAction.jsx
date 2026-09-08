@@ -38,7 +38,7 @@ export default function WorkInAction() {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-[#FFF9F3] py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>

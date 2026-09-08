@@ -4,9 +4,27 @@ import { MapPin, Phone, Mail, CheckCircle2, User, MessageSquare, Send, Loader2 }
 import Container from '../common/Container.jsx'
 
 const contactInfo = [
-  { icon: MapPin, label: 'Address', value: 'Jyoti Nagar, Shahdara, Delhi NCR' },
-  { icon: Phone, label: 'Phone', value: '+91 00000 00000' },
-  { icon: Mail, label: 'Email', value: 'contact@truebridgefoundation.org' },
+  {
+    icon: MapPin,
+    label: 'Address',
+    value: 'Shahdara, Delhi NCR',
+    accent: '#FF6B4A',
+    accentBg: '#FDE7E2',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 00000 00000',
+    accent: '#0F8B8D',
+    accentBg: '#E1F2F1',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'contact@truebridgefoundation.org',
+    accent: '#C98A1F',
+    accentBg: '#FCEFD6',
+  },
 ]
 
 export default function Contact() {
@@ -26,17 +44,32 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="bg-[#FAFAF8] border-b border-[#EDF1F5]">
-        <Container className="pt-14 sm:pt-20 pb-10 text-center">
+      <section className="relative overflow-hidden bg-[#FAFAF8] border-b border-[#EDF1F5]">
+        <span
+          className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full opacity-30 blur-3xl"
+          style={{ background: '#E1F2F1' }}
+          aria-hidden="true"
+        />
+        <span
+          className="pointer-events-none absolute -top-10 right-0 w-56 h-56 rounded-full opacity-30 blur-3xl"
+          style={{ background: '#FDE7E2' }}
+          aria-hidden="true"
+        />
+
+        <Container className="relative pt-14 sm:pt-20 pb-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[13px] font-bold tracking-widest text-[#0F8B8D]">
-              CONTACT US
-            </p>
-            <h1 className="mt-3 font-display text-[32px] sm:text-[40px] font-semibold text-[#063B5C]">
+            <div className="flex items-center justify-center gap-2">
+              <span className="w-6 h-px bg-[#FF6B4A]" />
+              <p className="text-[13px] font-bold tracking-widest text-[#0F8B8D]">
+                CONTACT US
+              </p>
+              <span className="w-6 h-px bg-[#FF6B4A]" />
+            </div>
+            <h1 className="mt-4 font-display text-[32px] sm:text-[40px] font-semibold text-[#063B5C]">
               Get In Touch
             </h1>
             <p className="mt-4 text-[16px] text-[#64748B] max-w-xl mx-auto">
@@ -61,14 +94,15 @@ export default function Contact() {
             return (
               <div
                 key={item.label}
-                className="group flex gap-4 items-center p-4 rounded-2xl border border-[#EDF1F5] bg-white transition-all duration-300 hover:border-[#0F8B8D]/30 hover:shadow-[0_8px_24px_rgba(6,59,92,0.06)]"
+                className="group flex gap-4 items-center p-4 rounded-2xl border border-[#EDF1F5] bg-white transition-all duration-300 hover:border-transparent hover:shadow-[0_8px_24px_rgba(6,59,92,0.08)]"
               >
-                <span className="w-12 h-12 rounded-md bg-[#032D46] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                  <Icon size={18} className="text-[#0F8B8D]" />
+                <span
+                  className="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
+                  style={{ backgroundColor: item.accentBg }}
+                >
+                  <Icon size={18} style={{ color: item.accent }} />
                 </span>
                 <div>
-
-                
                   <h3 className="font-semibold text-[15px] text-[#063B5C]">{item.label}</h3>
                   <p className="text-[15px] text-[#64748B] mt-0.5">{item.value}</p>
                 </div>
@@ -76,13 +110,17 @@ export default function Contact() {
             )
           })}
 
-          <div className="rounded-2xl overflow-hidden border border-[#EDF1F5] h-56 mt-4">
+          <div className="relative rounded-2xl overflow-hidden border border-[#EDF1F5] h-56 mt-4">
             <iframe
               title="Foundation location"
               className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
               loading="lazy"
               src="https://www.google.com/maps?q=Shahdara,Delhi&output=embed"
             />
+            <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-1.5 bg-white rounded-md shadow-md px-3 py-1.5">
+              <MapPin size={13} className="text-[#FF6B4A]" />
+              <span className="text-[12.5px] font-semibold text-[#063B5C]">Find us here</span>
+            </div>
           </div>
         </motion.div>
 
@@ -94,6 +132,14 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="relative bg-[#FFF9F3] border border-[#EDF1F5] rounded-2xl p-7 sm:p-9 overflow-hidden"
         >
+          {/* top accent + soft glow, consistent with the site's card language */}
+          <span className="absolute top-0 left-0 right-0 h-1 bg-[#0F8B8D]" aria-hidden="true" />
+          <span
+            className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-30 blur-3xl"
+            style={{ background: '#E1F2F1' }}
+            aria-hidden="true"
+          />
+
           <AnimatePresence mode="wait">
             {status === 'sent' ? (
               <motion.div
@@ -101,7 +147,7 @@ export default function Contact() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35 }}
-                className="h-full flex flex-col items-center justify-center text-center py-16"
+                className="relative h-full flex flex-col items-center justify-center text-center py-16"
               >
                 <motion.span
                   initial={{ scale: 0 }}
@@ -136,7 +182,7 @@ export default function Contact() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
                 onSubmit={handleSubmit}
-                className="space-y-5"
+                className="relative space-y-5"
               >
                 <div>
                   <label htmlFor="name" className="block text-[14px] font-medium text-[#063B5C] mb-1.5">
@@ -170,7 +216,7 @@ export default function Contact() {
                         required
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full pl-11 pr-4 py-3 rounded-md border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
                         placeholder="you@email.com"
                       />
                     </div>

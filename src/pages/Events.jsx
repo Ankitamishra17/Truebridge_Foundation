@@ -77,6 +77,7 @@
 
 import HeroSection from "../components/event/HeroSection.jsx";
 import EventGrid from "../components/event/EventGrid.jsx";
+import FinalCTA from "../components/home/FinalCTA.jsx";
 
 
 
@@ -85,6 +86,7 @@ export default function OurEvent() {
     <>
       <HeroSection />
      <EventGrid/>
+     <FinalCTA/>
     
     </>
   );

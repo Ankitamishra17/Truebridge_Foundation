@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MapPin, ChevronLeft, ChevronRight, Images, ArrowRight } from 'lucide-react'
+import { MapPin, ChevronLeft, ChevronRight, Images, X } from 'lucide-react'
 
 // Each event can carry as many images as you have — 1 or many, handled the same way.
 // Replace the placeholder paths with your real photo paths.
@@ -11,11 +11,7 @@ const events = [
     title: 'Health Camp & Blood Donation Camp',
     place: 'Kanti Nagar, Shahdara',
     body: 'Limra Foundation President Hina Akhtar welcomed and honoured Neeraj Dubey (Director, Truebridge Empowerment Echo Foundation) and Sushma Dubey (Director, Taksh Panchtatv Foundation) with a ceremonial shawl at the health and blood donation camp.',
-    images: [
-      '/image8.jpeg',
-      '/image4.jpeg',
-      '/image3.jpeg',
-    ],
+    images: ['/image8.jpeg', '/image4.jpeg', '/image3.jpeg'],
   },
   {
     date: '15 Dec 2024',
@@ -23,9 +19,7 @@ const events = [
     title: 'Brahmin Samman Samaroh',
     place: 'Local community venue, Shahdara',
     body: 'Cabinet Minister and area MLA Gopal Rai honoured Neeraj Dubey with a shield bearing an image of Lord Parshuram, in the presence of Pritam Sharma, Ramkant Kaushik, DC Vishisht, Brijesh Sharma and SN Sharma.',
-    images: ['/image21.jpeg',
-        '/image18.jpeg', 
-        '/image15.jpeg'],
+    images: ['/image21.jpeg', '/image18.jpeg', '/image15.jpeg'],
   },
   {
     date: '15 Dec 2024',
@@ -33,7 +27,7 @@ const events = [
     title: 'Shivastra Dharan Samaroh',
     place: 'Badi Shiv Mandir',
     body: 'Jai Bhagwan Goyal, National Executive President of the United Hindu Front, honoured Neeraj Dubey with a Shivastra at the Shivastra Dharan ceremony, conducted by RWA Jyoti Nagar.',
-    images: ['/image46.jpeg','/image47.jpeg'],
+    images: ['/image46.jpeg', '/image47.jpeg'],
   },
   {
     date: '22 Dec 2024',
@@ -41,12 +35,7 @@ const events = [
     title: 'Health Camp',
     place: 'Khatu Dham, Harsh Vihar',
     body: 'A dedicated health camp offered eye examinations, sugar testing, blood pressure checks and dental check-ups, conducted by the Sharp Sight medical team including Anurag Sharma and Mohan, with free spectacles and eye drops distributed by the Lakshya Welfare team and Seema Sharma.',
-    images: [
-      '/image1.jpeg',
-      '/image6.jpeg',
-      '/image7.jpeg',
-      
-    ],
+    images: ['/image1.jpeg', '/image6.jpeg', '/image7.jpeg'],
   },
   {
     date: '26 Jan',
@@ -54,11 +43,7 @@ const events = [
     title: 'Republic Day: Flag Hoisting, Medical Camp & Poster Competition',
     place: 'Community grounds',
     body: 'Directors Neeraj Dubey and Arun Dubey organised a Republic Day flag hoisting alongside a free medical camp for local residents and a children\u2019s poster-making competition on anaemia awareness and environmental protection. Chief guests included actor Lodhi Rakesh Rajput and Cabinet Minister Gopal Rai, joined by municipal councillor Mukesh Bansal and BJP candidate Anil Vashisth.',
-    images: [
-      '/image41.jpeg',
-      '/image42.jpeg',
-      '/image43.jpeg',
-    ],
+    images: ['/image41.jpeg', '/image42.jpeg', '/image43.jpeg'],
     featured: true,
   },
 ]
@@ -98,9 +83,20 @@ function TypeTag({ type }) {
   )
 }
 
-function EventGallery({ images, title, className = '' }) {
+// Auto-advances through images every few seconds; pauses on hover so people
+// can still use the manual arrows without fighting the timer.
+function EventGallery({ images, title, className = '', autoPlayMs = 3000 }) {
   const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
   const hasMultiple = images.length > 1
+
+  useEffect(() => {
+    if (!hasMultiple || paused) return
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length)
+    }, autoPlayMs)
+    return () => clearInterval(id)
+  }, [hasMultiple, paused, images.length, autoPlayMs])
 
   const go = (dir) => (e) => {
     e.preventDefault()
@@ -109,79 +105,113 @@ function EventGallery({ images, title, className = '' }) {
   }
 
   return (
-    <div className={`relative overflow-hidden bg-[#EDF1F5] ${className}`}>
-      <img
-        src={images[index]}
-        alt={`${title} — photo ${index + 1} of ${images.length}`}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+    <div
+      className={`relative overflow-hidden bg-[#EDF1F5] ${className}`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={images[index]}
+          alt={`${title} — photo ${index + 1} of ${images.length}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </AnimatePresence>
 
       {hasMultiple && (
         <>
           <button
             onClick={go(-1)}
             aria-label="Previous photo"
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
           >
             <ChevronLeft size={16} />
           </button>
           <button
             onClick={go(1)}
             aria-label="Next photo"
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
           >
             <ChevronRight size={16} />
           </button>
-          <span className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-1 rounded-md bg-black/50 text-white text-[11px] font-semibold">
+          <span className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-1 rounded-md bg-black/50 text-white text-[11px] font-semibold z-10">
             <Images size={11} />
             {index + 1}/{images.length}
           </span>
+          {/* progress dots, double as a quiet play-position indicator */}
+          <div className="absolute bottom-2 left-2 flex gap-1 z-10">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  i === index ? 'w-4 bg-white' : 'w-1 bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
         </>
       )}
     </div>
   )
 }
 
-function FeaturedEvent({ event }) {
+function EventDetailBody({ event }) {
+  return (
+    <div className="p-6 sm:p-8 flex flex-col justify-center">
+      <p className="text-[13px] font-semibold tracking-[0.1em] text-[#0F8B8D] uppercase">
+        {event.type}
+      </p>
+      <h3 className="mt-2 font-display text-[24px] sm:text-[28px] font-semibold text-[#063B5C] leading-tight">
+        {event.title}
+      </h3>
+      <p className="mt-2 flex items-center gap-1.5 text-[14px] text-[#64748B]">
+        <MapPin size={14} className="flex-shrink-0" />
+        {event.place}
+      </p>
+      <p className="mt-4 text-[15px] leading-relaxed text-[#64748B]">{event.body}</p>
+    </div>
+  )
+}
+
+function FeaturedEvent({ event, onOpen }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-[0_1px_2px_rgba(6,59,92,0.04)]"
+      onClick={() => onOpen(event)}
+      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-md transition-shadow duration-300"
     >
       <div className="relative">
         <EventGallery images={event.images} title={event.title} className="aspect-[4/3] lg:aspect-auto lg:h-full" />
         <DateBadge date={event.date} />
         <TypeTag type={event.type} />
       </div>
-      <div className="p-6 sm:p-8 flex flex-col justify-center">
-        <p className="text-[13px] font-semibold tracking-[0.1em] text-[#0F8B8D] uppercase">
+      <div>
+        <p className="pt-6 sm:pt-8 px-6 sm:px-8 text-[13px] font-semibold tracking-[0.1em] text-[#0F8B8D] uppercase">
           Latest event
         </p>
-        <h3 className="mt-2 font-display text-[24px] sm:text-[28px] font-semibold text-[#063B5C] leading-tight">
-          {event.title}
-        </h3>
-        <p className="mt-2 flex items-center gap-1.5 text-[14px] text-[#64748B]">
-          <MapPin size={14} className="flex-shrink-0" />
-          {event.place}
-        </p>
-        <p className="mt-4 text-[15px] leading-relaxed text-[#64748B]">{event.body}</p>
-        
+        <EventDetailBody event={{ ...event, type: undefined }} />
       </div>
     </motion.article>
   )
 }
 
-function EventCard({ event, i }) {
+function EventCard({ event, i, onOpen }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.05 }}
-      className="group bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden flex flex-col shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+      onClick={() => onOpen(event)}
+      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden flex flex-col shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
     >
       <div className="relative">
         <EventGallery images={event.images} title={event.title} className="aspect-[4/3]" />
@@ -203,8 +233,59 @@ function EventCard({ event, i }) {
   )
 }
 
+// Full-detail view, shown for whichever card was clicked — same visual
+// language as the featured card, just in a modal so every event can use it.
+function EventModal({ event, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  if (!event) return null
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-[#032D46]/80 backdrop-blur-sm flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 10 }}
+        transition={{ duration: 0.25 }}
+        onClick={(e) => e.stopPropagation()}
+        className="group relative bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto grid grid-cols-1 lg:grid-cols-2 shadow-2xl"
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#063B5C] hover:bg-[#EDF1F5] transition-colors"
+        >
+          <X size={16} />
+        </button>
+
+        <div className="relative">
+          <EventGallery
+            images={event.images}
+            title={event.title}
+            className="aspect-[4/3] lg:aspect-auto lg:h-full"
+          />
+          <DateBadge date={event.date} />
+          <TypeTag type={event.type} />
+        </div>
+        <EventDetailBody event={event} />
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function EventsGrid() {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [selected, setSelected] = useState(null)
 
   const featured = useMemo(() => events.find((e) => e.featured), [])
   const rest = useMemo(() => {
@@ -246,7 +327,7 @@ export default function EventsGrid() {
 
         {activeCategory === 'All' && featured && (
           <div className="mt-10">
-            <FeaturedEvent event={featured} />
+            <FeaturedEvent event={featured} onOpen={setSelected} />
           </div>
         )}
 
@@ -260,7 +341,12 @@ export default function EventsGrid() {
             className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {rest.map((event, i) => (
-              <EventCard key={`${event.title}-${event.date}`} event={event} i={i} />
+              <EventCard
+                key={`${event.title}-${event.date}`}
+                event={event}
+                i={i}
+                onOpen={setSelected}
+              />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -271,6 +357,10 @@ export default function EventsGrid() {
           </p>
         )}
       </div>
+
+      <AnimatePresence>
+        {selected && <EventModal event={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   )
 }

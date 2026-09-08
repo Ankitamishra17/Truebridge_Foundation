@@ -39,7 +39,7 @@ const items = [
 
 export default function MissionVisionValues() {
   return (
-    <section className="bg-[#fffdfc]">
+    <section className="bg-[#FFF9F3]">
       <Container className="py-16 sm:py-20">
         <div className="text-center max-w-xl mx-auto">
           <div className="flex items-center justify-center gap-2">
@@ -53,7 +53,7 @@ export default function MissionVisionValues() {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {items.map((item, i) => {
             const Icon = item.icon
             return (

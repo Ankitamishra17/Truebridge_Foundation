@@ -3,7 +3,7 @@ import PrimaryButton from "../common/PrimaryButton.jsx";
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-[#063B5C] min-h-[340px] xs:min-h-[380px] sm:min-h-[420px] md:min-h-[460px] flex items-center">
+    <section className="relative overflow-hidden bg-[#063B5C] min-h-[340px] xs:min-h-[380px] sm:min-h-[420px] md:min-h-[460px] flex items-center -mb-20">
 
       {/* Background Image — Mobile */}
       <div
@@ -23,7 +23,7 @@ export default function FinalCTA() {
         aria-hidden="true"
       />
 
-      <Container className="py-12 sm:py-16 md:py-20 relative z-10">
+      <Container className="py-12 sm:py-16 md:py-20 relative z-10 ">
         <div className="flex flex-col items-start gap-4 sm:gap-5 max-w-[280px] xs:max-w-sm sm:max-w-md lg:max-w-lg">
 
           <h2 className="font-display font-semibold text-[22px] xs:text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] text-white leading-tight">

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 const team = [
-  { name: 'Mayank Bansal', role: 'President', initials: 'MB', accent: '#0F8B8D' },
-  { name: 'Neeraj Dubey', role: 'Director', initials: 'ND', accent: '#063B5C' },
-  { name: 'Arun Dubey', role: 'Team Member', initials: 'AD', accent: '#FF6B4A' },
+  { name: 'Mayank Bansal', role: 'President', initials: 'MB', accent: '#0F8B8D', accentBg: '#E1F2F1' },
+  { name: 'Neeraj Dubey', role: 'Director', initials: 'ND', accent: '#063B5C', accentBg: '#E7EDF1' },
+  { name: 'Arun Dubey', role: 'Team Member', initials: 'AD', accent: '#FF6B4A', accentBg: '#FDE7E2' },
 ]
 
 export default function OurLeadership() {
@@ -17,6 +17,12 @@ export default function OurLeadership() {
       >
         <path d="M100 10 C 40 10, 10 60, 10 120 C 10 165, 45 195, 90 195 C 60 160, 55 100, 100 70 C 60 100, 65 150, 95 180 C 150 175, 190 130, 190 80 C 190 40, 150 10, 100 10 Z" />
       </svg>
+      {/* decorative soft circle, top-right, for balance */}
+      <span
+        className="pointer-events-none absolute -top-14 right-0 w-56 h-56 rounded-full opacity-40 blur-3xl -z-0"
+        style={{ background: '#FDE7E2' }}
+        aria-hidden="true"
+      />
 
       <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-center">
@@ -27,10 +33,13 @@ export default function OurLeadership() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
-              OUR LEADERSHIP
-            </p>
-            <h2 className="mt-3 font-display text-[28px] sm:text-[34px] font-bold leading-[1.15] text-[#063B5C]">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-px bg-[#FF6B4A]" />
+              <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
+                OUR LEADERSHIP
+              </p>
+            </div>
+            <h2 className="mt-4 font-display text-[28px] sm:text-[34px] font-bold leading-[1.15] text-[#063B5C]">
               Working Together for Greater Impact
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-[#64748B] max-w-sm">
@@ -48,10 +57,17 @@ export default function OurLeadership() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="group bg-white rounded-2xl border border-[#EDF1F5] p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(6,59,92,0.14)]"
+                className="group relative bg-white rounded-2xl border border-[#EDF1F5] p-6 pt-7 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(6,59,92,0.14)]"
               >
+                {/* top accent bar, unique per member */}
+                <span
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{ backgroundColor: member.accent }}
+                  aria-hidden="true"
+                />
+
                 <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center ring-4 ring-white shadow-md transition-transform duration-300 group-hover:scale-105"
+                  className="w-20 h-20 rounded-full flex items-center justify-center ring-4 ring-white shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
                   style={{ background: `linear-gradient(135deg, ${member.accent} 0%, #063B5C 100%)` }}
                 >
                   <span className="font-display font-bold text-[22px] text-white">
@@ -61,9 +77,12 @@ export default function OurLeadership() {
                 <h3 className="mt-4 font-display font-semibold text-[16px] text-[#063B5C]">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-[13px]" style={{ color: member.accent }}>
+                <span
+                  className="mt-2 px-3 py-1 rounded-md text-[12px] font-semibold"
+                  style={{ backgroundColor: member.accentBg, color: member.accent }}
+                >
                   {member.role}
-                </p>
+                </span>
               </motion.div>
             ))}
           </div>
