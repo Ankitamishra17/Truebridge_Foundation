@@ -5,7 +5,6 @@ import Container from "../common/Container.jsx";
 export default function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-[#FDFBF7] min-h-[calc(100vh-100px)]">
-
       {/* Background image — mobile */}
       <div
         className="sm:hidden absolute inset-0 bg-cover bg-right"
@@ -21,13 +20,18 @@ export default function AboutHero() {
       />
 
       {/* left-side scrim — mobile */}
-      {/* <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-[#FDFBF7]/30" /> */}
-
+      <div
+        className="sm:hidden absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
+        }}
+        aria-hidden="true"
+      />
       {/* left-side scrim — desktop */}
       {/* <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/70 to-transparent" /> */}
 
       <Container className="relative z-10 min-h-[calc(100vh-100px)] flex items-center py-14 sm:py-20">
-
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,13 +49,11 @@ export default function AboutHero() {
 
             <span className="text-[#94A3B8]">/</span>
 
-            <span className="font-medium text-[#0F8B8D]">
-              About Us
-            </span>
+            <span className="font-medium text-[#0F8B8D]">About Us</span>
           </div>
 
           <h1 className="mt-3 font-display text-[34px] sm:text-[40px] leading-[1.1] font-semibold text-[#063B5C]">
-           Building Healthier Communities, Together.
+            Building Healthier Communities, Together.
           </h1>
 
           <p className="mt-6 text-[17px] max-w-[190px] sm:max-w-md leading-relaxed text-[#64748B]">
@@ -65,10 +67,7 @@ export default function AboutHero() {
             style={{ fontFamily: "Caveat, cursive" }}
           >
             Together for a Better Tomorrow
-            <Heart
-              size={20}
-              className="text-[#FF6B4A] fill-[#FF6B4A]"
-            />
+            <Heart size={20} className="text-[#FF6B4A] fill-[#FF6B4A]" />
           </p>
         </motion.div>
       </Container>
@@ -90,7 +89,6 @@ export default function AboutHero() {
           Big Change
         </span>
       </motion.div>
-
     </section>
   );
 }

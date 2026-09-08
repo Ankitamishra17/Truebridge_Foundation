@@ -23,14 +23,14 @@ export default function ContactHero() {
       />
 
       {/* White Gradient Overlay — mobile */}
-      {/* <div
+ <div
         className="sm:hidden absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.99) 0%, rgba(255,255,255,0.95) 45%, rgba(255,255,255,0.55) 75%, rgba(255,255,255,0.05) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
         }}
         aria-hidden="true"
-      /> */}
+      />
 
       {/* White Gradient Overlay — desktop */}
       {/* <div
@@ -70,10 +70,8 @@ export default function ContactHero() {
             <h1
               className="
                 font-display
-                text-[32px]
-                sm:text-[46px]
-                lg:text-[54px]
-                leading-[1.08]
+               text-[34px] sm:text-[40px]
+                leading-[1.1]
                 font-semibold
                 max-w-2xl
                 text-[#032D46]

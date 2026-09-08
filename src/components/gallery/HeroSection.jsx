@@ -13,6 +13,14 @@ export default function GalleryHero() {
         }}
         aria-hidden="true"
       />
+      <div
+        className="sm:hidden absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* Background image — desktop */}
       <div
@@ -55,7 +63,7 @@ export default function GalleryHero() {
           </div>
 
           {/* Heading */}
-          <h1 className="mt-3 font-display max-w-[190px] sm:max-w-md text-[30px] xs:text-[34px] sm:text-[40px] lg:text-[46px] leading-[1.15] sm:leading-[1.1] font-semibold text-[#063B5C]">
+          <h1 className="mt-3 font-display max-w-[190px] sm:max-w-md text-[34px] sm:text-[40px] leading-[1.1] sm:leading-[1.1] font-semibold text-[#063B5C]">
             Moments That Define Our Journey
           </h1>
 

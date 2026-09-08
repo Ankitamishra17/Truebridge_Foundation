@@ -29,14 +29,14 @@ export default function HeroSection() {
       )}
 
       {/* Mobile Overlay */}
-      {/* <div
+      <div
         className="sm:hidden absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
         }}
         aria-hidden="true"
-      /> */}
+      />
 
       {/* Content */}
       <Container
@@ -70,9 +70,8 @@ export default function HeroSection() {
               mt-3
               font-display
               font-bold
-              text-[30px]
-              sm:text-[48px]
-              lg:text-[54px]
+             text-[34px]
+              sm:text-[40px]
               leading-[1.1]
               text-[#063B5C]
             "

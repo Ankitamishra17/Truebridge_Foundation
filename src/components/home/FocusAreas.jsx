@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { HeartPulse, GraduationCap, HandHeart, Leaf, ArrowRight } from "lucide-react";
+import {
+  HeartPulse,
+  GraduationCap,
+  HandHeart,
+  Leaf,
+  ArrowRight,
+} from "lucide-react";
 
 const focusAreas = [
   {
@@ -48,6 +54,9 @@ export default function FocusAreas() {
           >
             Our Focus Areas
           </h2>
+          {/* Underline */}
+          <span className="block mx-auto mt-3.5 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#FF6B4A]" />
+
           <p
             className="mt-2 text-base sm:text-lg"
             style={{ color: "#64748B", fontFamily: "Inter, sans-serif" }}
@@ -74,24 +83,37 @@ export default function FocusAreas() {
                     className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                     style={{ backgroundColor: area.iconBg }}
                   >
-                    <Icon size={22} style={{ color: area.iconColor }} strokeWidth={2} />
+                    <Icon
+                      size={22}
+                      style={{ color: area.iconColor }}
+                      strokeWidth={2}
+                    />
                   </div>
                   <h3
                     className="text-lg font-semibold mt-5 mb-2"
-                    style={{ color: "#17324D", fontFamily: "Poppins, sans-serif" }}
+                    style={{
+                      color: "#17324D",
+                      fontFamily: "Poppins, sans-serif",
+                    }}
                   >
                     {area.title}
                   </h3>
                   <p
                     className="text-sm leading-relaxed flex-1"
-                    style={{ color: "#64748B", fontFamily: "Inter, sans-serif" }}
+                    style={{
+                      color: "#64748B",
+                      fontFamily: "Inter, sans-serif",
+                    }}
                   >
                     {area.description}
                   </p>
                   <a
                     href="/programs"
                     className="inline-flex items-center gap-1.5 text-sm font-medium mt-5 group/link"
-                    style={{ color: area.linkColor, fontFamily: "Inter, sans-serif" }}
+                    style={{
+                      color: area.linkColor,
+                      fontFamily: "Inter, sans-serif",
+                    }}
                   >
                     Learn More
                     <ArrowRight
@@ -159,13 +181,17 @@ export default function FocusAreas() {
                 className="text-sm leading-relaxed mb-6"
                 style={{ color: "#EAF8F7", fontFamily: "Inter, sans-serif" }}
               >
-                Your support helps us organize health camps, awareness drives and community
-                programs. Together, we can build a healthier and stronger society.
+                Your support helps us organize health camps, awareness drives
+                and community programs. Together, we can build a healthier and
+                stronger society.
               </p>
               <a
                 href="/donate"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_10px_24px_-6px_rgba(255,107,74,0.5)]"
-                style={{ backgroundColor: "#FF6B4A", fontFamily: "Inter, sans-serif" }}
+                style={{
+                  backgroundColor: "#FF6B4A",
+                  fontFamily: "Inter, sans-serif",
+                }}
               >
                 Donate Now
                 <ArrowRight size={16} />
