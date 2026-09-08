@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   HeartPulse,
   GraduationCap,
@@ -185,8 +186,8 @@ export default function FocusAreas() {
                 and community programs. Together, we can build a healthier and
                 stronger society.
               </p>
-              <a
-                href="/donate"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_10px_24px_-6px_rgba(255,107,74,0.5)]"
                 style={{
                   backgroundColor: "#FF6B4A",
@@ -195,7 +196,7 @@ export default function FocusAreas() {
               >
                 Donate Now
                 <ArrowRight size={16} />
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,5 @@
 import { FlagTriangleRight, Stethoscope, Palette, ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom";
 
 const moments = [
   {
@@ -45,12 +46,12 @@ export default function Spotlight() {
               We combined patriotism with purpose by organising multiple activities for the
               community.
             </p>
-            <a
-              href="/gallery"
+            <Link
+              to="/gallery"
               className="mt-7 inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#032D46] text-white text-[14px] font-semibold hover:bg-[#063B5C] transition-colors"
             >
               View Event Gallery <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
 
           {/* Right: photo trio + sticker */}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -156,12 +157,12 @@ export default function FAQ() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md border-2 border-[#0F8B8D] text-[#0F8B8D] text-[14px] font-semibold hover:bg-[#0F8B8D] hover:text-white transition-colors"
           >
             Still have questions? Contact us <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom";
 
 const photos = [
   { src: '/image6.jpeg', alt: 'A doctor examining a schoolgirl at a health camp' },
@@ -51,12 +52,12 @@ export default function WorkInAction() {
               On The Ground
             </h2>
           </div>
-          <a
-            href="/gallery"
+          <Link
+            to="/gallery"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md border-2 border-[#0F8B8D] text-[#0F8B8D] text-[14px] font-semibold hover:bg-[#0F8B8D] hover:text-white transition-colors flex-shrink-0 self-start"
           >
             View More <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
 
         <div className="relative mt-10">

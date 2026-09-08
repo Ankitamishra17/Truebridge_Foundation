@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -56,12 +57,12 @@ export default function Hero() {
           >
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
               >
                 Home
-              </a>
+              </Link>
 
               <span className="text-[#94A3B8]">/</span>
 
@@ -107,8 +108,7 @@ export default function Hero() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="/events"
+              <Link                to="/events"
                 className="
                   px-7
                   py-3.5
@@ -126,10 +126,10 @@ export default function Hero() {
               >
                 See our events
                 <ArrowUpRight size={16} />
-              </a>
+              </Link>
 
-              <a
-                href="/about"
+              <Link
+              to="/about"
                 className="
     inline-flex
     items-center
@@ -150,7 +150,7 @@ export default function Hero() {
   "
               >
                 Read Our Story
-              </a>
+              </Link>
             </div>
           </motion.div>
 

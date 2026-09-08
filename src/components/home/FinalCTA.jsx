@@ -34,7 +34,7 @@ export default function FinalCTA() {
             Your support helps build healthier communities.
           </p>
 
-          <PrimaryButton to="/contact" variant="coral" showArrow>
+          <PrimaryButton to="/contact" variant="coral" showArrow className="mb-14">
             Donate Now
           </PrimaryButton>
 

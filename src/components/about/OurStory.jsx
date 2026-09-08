@@ -41,9 +41,7 @@ export default function OurStory() {
             </p>
 
             <div className="mt-8 flex items-center gap-5">
-              <PrimaryButton to="/about" variant="coral" showArrow>
-                Know More About Us
-              </PrimaryButton>
+             
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className="font-display text-[14px] font-semibold text-[#063B5C]">
                   Neeraj & Arun Dubey

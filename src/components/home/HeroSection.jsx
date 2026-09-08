@@ -106,7 +106,7 @@ export default function HeroSection() {
             </div>
 
             <div className="scale-90 sm:scale-100 origin-left">
-              <PrimaryButton href="/gallery">View Gallery</PrimaryButton>
+              <PrimaryButton to="/gallery">View Gallery</PrimaryButton>
             </div>
           </div>
         </motion.div>

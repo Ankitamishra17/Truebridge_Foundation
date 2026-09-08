@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import Container from "../common/Container.jsx";
+import { Link } from "react-router-dom";
 
 export default function GalleryHero() {
   return (
@@ -50,12 +51,12 @@ export default function GalleryHero() {
         >
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-4 -mt-8">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
             >
               Home
-            </a>
+            </Link>
 
             <span className="text-[#94A3B8]">/</span>
 

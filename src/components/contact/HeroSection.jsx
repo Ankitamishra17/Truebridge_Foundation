@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ContactHero() {
   return (
@@ -56,12 +57,12 @@ export default function ContactHero() {
           >
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
               >
                 Home
-              </a>
+              </Link>
 
               <span className="text-[#94A3B8]">/</span>
 
