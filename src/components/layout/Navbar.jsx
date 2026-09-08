@@ -171,8 +171,10 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Mobile menu — a left-side drawer that slides in left-to-right,
-          instead of a dropdown expanding downward. */}
+      {/* Mobile menu — right-side drawer.
+          z-index bumped well above any floating widgets (WhatsApp/Call
+          buttons etc.) that sit at high z-index elsewhere on the page,
+          so the drawer always renders on top of them, not underneath. */}
       <AnimatePresence>
         {open && (
           <>
@@ -182,14 +184,14 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 bg-[#032D46]/40 backdrop-blur-[2px] z-40"
+              className="lg:hidden fixed inset-0 bg-[#032D46]/40 backdrop-blur-[2px] z-[90]"
             />
             <motion.nav
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="lg:hidden fixed inset-y-0 right-0 z-50 w-[78%] max-w-xs bg-white shadow-2xl flex flex-col"
+              className="lg:hidden fixed inset-y-0 right-0 z-[100] w-[85vw] max-w-xs bg-white shadow-2xl flex flex-col"
             >
               <div className="flex items-center justify-between px-5 h-[64px] border-b border-[#EDF1F5] flex-shrink-0">
                 <span className="flex items-center gap-2.5">
