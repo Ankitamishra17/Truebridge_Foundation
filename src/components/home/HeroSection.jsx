@@ -34,13 +34,8 @@ export default function HeroSection() {
       )}
 
       {/* white scrim, mobile only — text sits on the left so it needs to stay readable over the photo */}
-      <div
-        className="sm:hidden absolute inset-0 z-[1]"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(255,249,243,0.99) 0%, rgba(255,249,243,0.96) 45%, rgba(255,249,243,0.82) 75%, rgba(255,249,243,0.55) 100%)",
-        }}
-      />
+      <div className="sm:hidden absolute inset-0 z-[1] bg-gradient-to-r from-[#FFF9F3] via-[#FFF9F3]/85 to-[#FFF9F3]/10" />
+
       <Container className="py-14 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
