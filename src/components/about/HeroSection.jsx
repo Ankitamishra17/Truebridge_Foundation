@@ -24,7 +24,7 @@ export default function AboutHero() {
       <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-[#FDFBF7]/30" />
 
       {/* left-side scrim — desktop */}
-      <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/70 to-transparent" />
+      {/* <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/70 to-transparent" /> */}
 
       <Container className="relative z-10 min-h-[calc(100vh-100px)] flex items-center py-14 sm:py-20">
 

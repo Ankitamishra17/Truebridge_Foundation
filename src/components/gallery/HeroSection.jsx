@@ -24,13 +24,13 @@ export default function GalleryHero() {
       />
 
       {/* Left-side overlay */}
-      <div
+      {/* <div
         className="absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(253,251,247,0.98) 0%, rgba(253,251,247,0.90) 35%, rgba(253,251,247,0.60) 60%, rgba(253,251,247,0.10) 100%)",
         }}
-      />
+      /> */}
 
       {/* Content */}
       <Container className="relative z-10 min-h-[calc(100vh-100px)] flex items-center py-14 sm:py-20">

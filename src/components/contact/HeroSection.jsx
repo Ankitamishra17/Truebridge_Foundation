@@ -33,14 +33,14 @@ export default function ContactHero() {
       />
 
       {/* White Gradient Overlay — desktop */}
-      <div
+      {/* <div
         className="hidden sm:block absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.75) 40%, rgba(255,255,255,0.05) 100%)",
         }}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">

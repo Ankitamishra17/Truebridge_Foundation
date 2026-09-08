@@ -35,14 +35,14 @@ export default function Hero() {
       />
 
       {/* White Gradient - Left to Right, desktop */}
-      <div
+      {/* <div
         className="hidden sm:block absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.82) 45%, rgba(255,255,255,0.35) 68%, rgba(255,255,255,0) 100%)",
         }}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">

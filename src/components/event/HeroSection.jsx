@@ -34,14 +34,14 @@ export default function EventsHero() {
       />
 
       {/* Left white/cream overlay for text readability — desktop */}
-      <div
+      {/* <div
         className="hidden sm:block absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,249,243,1) 0%, rgba(255,249,243,0.98) 30%, rgba(255,249,243,0.78) 48%, rgba(255,249,243,0.15) 72%, rgba(255,249,243,0) 100%)",
         }}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">
