@@ -23,7 +23,7 @@ export default function VideoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-7xl mx-auto"
         >
           {videos.map((video, i) => (
             <div key={video.id} className="min-w-0">

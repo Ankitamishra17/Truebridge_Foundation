@@ -151,6 +151,8 @@ export default function Navbar() {
         />
       </div>
 
+      {/* Mobile menu — a left-side drawer that slides in left-to-right,
+          instead of a dropdown expanding downward. */}
       <AnimatePresence>
         {open && (
           <>
@@ -160,22 +162,40 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 top-[64px] bg-[#032D46]/30 backdrop-blur-[2px] z-40"
+              className="lg:hidden fixed inset-0 bg-[#032D46]/40 backdrop-blur-[2px] z-40"
             />
             <motion.nav
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:hidden relative z-50 overflow-hidden border-t border-[#EDF1F5] bg-white"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+              className="lg:hidden fixed inset-y-0 right-0 z-50 w-[78%] max-w-xs bg-white shadow-2xl flex flex-col"
             >
-              <div className="max-w-[1280px] mx-auto px-5 py-4 flex flex-col gap-1">
+              <div className="flex items-center justify-between px-5 h-[64px] border-b border-[#EDF1F5] flex-shrink-0">
+                <span className="flex items-center gap-2.5">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center">
+                    <HeartHandshake size={15} className="text-white" />
+                  </span>
+                  <span className="font-display font-semibold text-[16px] text-[#063B5C]">
+                    Truebridge
+                  </span>
+                </span>
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="w-9 h-9 flex items-center justify-center text-[#063B5C] rounded-full hover:bg-[#FAFAF8] outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-1">
                 {links.map((l, i) => (
                   <motion.div
                     key={l.to}
-                    initial={{ opacity: 0, x: -12 }}
+                    initial={{ opacity: 0, x: 12 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.25, delay: i * 0.04 }}
+                    transition={{ duration: 0.25, delay: 0.05 + i * 0.04 }}
                   >
                     <NavLink
                       to={l.to}
@@ -194,21 +214,22 @@ export default function Navbar() {
                     </NavLink>
                   </motion.div>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25, delay: links.length * 0.04 }}
-                  className="pt-3"
-                >
-                  <button
-                    onClick={openDonate}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#FF6B4A] text-white text-[15px] font-semibold hover:brightness-105 transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40"
-                  >
-                    <Heart size={15} className="fill-white" />
-                    Donate Now
-                  </button>
-                </motion.div>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25, delay: 0.05 + links.length * 0.04 }}
+                className="px-5 py-4 border-t border-[#EDF1F5] flex-shrink-0"
+              >
+                <button
+                  onClick={openDonate}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold hover:brightness-105 transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40"
+                >
+                  <Heart size={15} className="fill-white" />
+                  Donate Now
+                </button>
+              </motion.div>
             </motion.nav>
           </>
         )}
