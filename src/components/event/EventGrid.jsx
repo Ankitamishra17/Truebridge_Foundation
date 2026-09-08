@@ -297,7 +297,7 @@ export default function EventsGrid() {
 
   return (
     <section className="bg-[#FFF9F3] py-16 sm:py-20">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-[13px] font-semibold tracking-[0.14em] text-[#0F8B8D]">

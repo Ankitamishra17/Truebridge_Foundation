@@ -1,32 +1,40 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { MapPin, Phone, Mail, Youtube, Instagram, Facebook, HeartHandshake, Heart } from 'lucide-react'
-import DonateModal from '../common/DonateModal.jsx'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Youtube,
+  Instagram,
+  Facebook,
+  HeartHandshake,
+  Heart,
+} from "lucide-react";
+import DonateModal from "../common/DonateModal.jsx";
 
 const quickLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/programs', label: 'Our Work' },
-  { to: '/events', label: 'Events' },
-  { to: '/gallery', label: 'Gallery' },
-  
-]
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/programs", label: "Our Work" },
+  { to: "/events", label: "Events" },
+  { to: "/gallery", label: "Gallery" },
+];
 
 const initiativeLinks = [
-  { to: '/events', label: 'Healthcare' },
-  { to: '/events', label: 'Education' },
-  { to: '/events', label: 'Community Support' },
-  { to: '/events', label: 'Women Empowerment' },
-]
+  { to: "/events", label: "Healthcare" },
+  { to: "/events", label: "Education" },
+  { to: "/events", label: "Community Support" },
+  { to: "/events", label: "Women Empowerment" },
+];
 
 const socials = [
-  { icon: Facebook, label: 'Facebook' },
-  { icon: Instagram, label: 'Instagram' },
-  { icon: Youtube, label: 'YouTube' },
-]
+  { icon: Facebook, label: "Facebook" },
+  { icon: Instagram, label: "Instagram" },
+  { icon: Youtube, label: "YouTube" },
+];
 
 export default function Footer() {
-  const [donateOpen, setDonateOpen] = useState(false)
+  const [donateOpen, setDonateOpen] = useState(false);
 
   return (
     <footer className="relative bg-[#032D46] text-white overflow-hidden">
@@ -70,7 +78,7 @@ export default function Footer() {
           </div>
           <p
             className="text-[16px] sm:text-[17px] text-white/75"
-            style={{ fontFamily: 'Caveat, cursive' }}
+            style={{ fontFamily: "Caveat, cursive" }}
           >
             Together for a better tomorrow.
           </p>
@@ -116,6 +124,7 @@ export default function Footer() {
               <li key={i.label}>
                 <Link
                   to={i.to}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="inline-flex items-center gap-1.5 text-white/75 hover:text-[#7FE0DD] transition-colors group"
                 >
                   <span className="w-1 h-1 rounded-full bg-[#0F8B8D] group-hover:bg-[#7FE0DD] transition-colors" />
@@ -141,7 +150,9 @@ export default function Footer() {
               <span className="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center flex-shrink-0">
                 <Mail size={14} className="text-[#0F8B8D]" />
               </span>
-              <span className="pt-1.5 break-all">info@truebridgefoundation.org</span>
+              <span className="pt-1.5 break-all">
+                info@truebridgefoundation.org
+              </span>
             </li>
             <li className="flex gap-3">
               <span className="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center flex-shrink-0">
@@ -155,15 +166,22 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row gap-3 justify-between text-[12.5px] sm:text-[13px] text-white/50 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Truebridge Empowerment Echo Foundation. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Truebridge Empowerment Echo Foundation.
+            All rights reserved.
+          </p>
           <div className="flex gap-5 justify-center sm:justify-start">
-            <a href="#" className="hover:text-[#7FE0DD] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#7FE0DD] transition-colors">Terms</a>
+            <a href="#" className="hover:text-[#7FE0DD] transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-[#7FE0DD] transition-colors">
+              Terms
+            </a>
           </div>
         </div>
       </div>
 
       <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
     </footer>
-  )
+  );
 }
