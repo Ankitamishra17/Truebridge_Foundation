@@ -21,7 +21,7 @@ export default function AboutHero() {
       />
 
       {/* left-side scrim — mobile */}
-      <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-[#FDFBF7]/30" />
+      {/* <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-[#FDFBF7]/30" /> */}
 
       {/* left-side scrim — desktop */}
       {/* <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/70 to-transparent" /> */}

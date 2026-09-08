@@ -25,14 +25,14 @@ export default function Hero() {
       />
 
       {/* White Gradient - Left to Right, mobile */}
-      <div
+      {/* <div
         className="sm:hidden absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
         }}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* White Gradient - Left to Right, desktop */}
       {/* <div

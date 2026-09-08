@@ -24,14 +24,14 @@ export default function EventsHero() {
       />
 
       {/* Left white/cream overlay for text readability — mobile */}
-      <div
+      {/* <div
         className="sm:hidden absolute inset-0"
         style={{
           background:
             "linear-gradient(90deg, rgba(255,249,243,1) 0%, rgba(255,249,243,0.98) 38%, rgba(255,249,243,0.8) 58%, rgba(255,249,243,0.25) 80%, rgba(255,249,243,0) 100%)",
         }}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Left white/cream overlay for text readability — desktop */}
       {/* <div
