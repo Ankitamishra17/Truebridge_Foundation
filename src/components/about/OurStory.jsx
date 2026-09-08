@@ -15,7 +15,7 @@ export default function OurStory() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-2  sm:-mt-56">
+            <div className="flex items-center gap-2  ">
               <span className="w-6 h-px bg-[#FF6B4A]" />
               <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
                 OUR STORY
