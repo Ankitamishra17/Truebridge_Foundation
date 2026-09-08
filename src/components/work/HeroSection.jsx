@@ -3,12 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-white min-h-[calc(100vh-100px)]">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-no-repeat bg-right"
         style={{
           backgroundImage: "url('/work_banner.png')",
+          backgroundSize: "auto 100%",
         }}
         aria-hidden="true"
       />
@@ -18,7 +19,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.08) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.82) 45%, rgba(255,255,255,0.35) 68%, rgba(255,255,255,0) 100%)",
         }}
         aria-hidden="true"
       />
@@ -33,51 +34,58 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-6 sm:pt-14 pb-14 sm:pb-16">
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">
+        <div className="w-full">
           {/* Hero Content */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="max-w-2xl py-14 sm:py-16"
           >
-            {/* Small Heading */}
-<div className="flex items-center gap-2 text-sm mb-4">
-            <a
-              href="/"
-              className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
-            >
-              Home
-            </a>
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm mb-5">
+              <a
+                href="/"
+                className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
+              >
+                Home
+              </a>
 
-            <span className="text-[#94A3B8]">/</span>
+              <span className="text-[#94A3B8]">/</span>
 
-            <span className="font-medium text-[#0F8B8D]">Our Work</span>
-          </div>
+              <span className="font-medium text-[#0F8B8D]">Our Work</span>
+            </div>
+
             {/* Main Heading */}
             <h1
               className="
-                mt-3
                 font-display
-                text-[38px]
-                sm:text-[52px]
+                text-[36px]
+                sm:text-[48px]
+                lg:text-[54px]
                 leading-[1.08]
                 font-semibold
                 text-[#032D46]
                 max-w-2xl
               "
             >
-                Four kinds of work, one purpose — a healthier neighbourhood.
+              Four kinds of work,
+              <br />
+              one purpose — a healthier{" "}
+              <span className="text-[#0F8B8D]">neighbourhood.</span>
             </h1>
 
             {/* Description */}
             <p
               className="
-                mt-5
-                text-[17px]
+                mt-6
+                text-[16px]
+                sm:text-[17px]
                 leading-relaxed
                 text-[#032D46]/75
-                max-w-lg
+                max-w-xl
               "
             >
               We run health camps, blood donation drives, community recognition
@@ -133,15 +141,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="
-              mt-14
-              sm:mt-16
+              mt-2
+              sm:mt-4
               flex
               flex-wrap
               gap-x-10
               gap-y-6
               border-t
               border-[#032D46]/10
-              pt-8
+              pt-6
+              pb-8
             "
           >
             {[
@@ -162,7 +171,7 @@ export default function Hero() {
                 <p
                   className="
                     font-display
-                    text-[24px]
+                    text-[23px]
                     font-semibold
                     text-[#032D46]
                   "

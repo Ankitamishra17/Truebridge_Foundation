@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Users, HeartPulse, Briefcase, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import Container from '../common/Container.jsx'
 import SectionHeading from '../common/SectionHeading.jsx'
 
@@ -31,6 +32,8 @@ const ways = [
 ]
 
 export default function GetInvolved() {
+  const navigate = useNavigate()
+
   return (
     <section className="bg-[#FAFAF8]">
       <Container className="py-16 sm:py-20">
@@ -54,21 +57,28 @@ export default function GetInvolved() {
                 className="relative w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                 style={{ backgroundColor: w.tint }}
               >
-                <w.icon size={26} strokeWidth={1.8} style={{ color: w.accent }} />
+                <w.icon
+                  size={26}
+                  strokeWidth={1.8}
+                  style={{ color: w.accent }}
+                />
               </span>
 
               <h3 className="mt-7 font-display font-semibold text-[19px] text-[#063B5C]">
                 {w.title}
               </h3>
+
               <p className="mt-2.5 text-[14px] leading-relaxed text-[#64748B] max-w-[26ch]">
                 {w.description}
               </p>
 
               <button
+                onClick={() => navigate('/contact')}
                 className="mt-7 inline-flex items-center gap-2 text-[14px] font-semibold"
                 style={{ color: w.accent }}
               >
                 {w.cta}
+
                 <span
                   className="w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1"
                   style={{ backgroundColor: w.tint }}
@@ -77,7 +87,7 @@ export default function GetInvolved() {
                 </span>
               </button>
 
-              {/* accent bar, revealed on hover */}
+              {/* accent bar */}
               <span
                 className="absolute left-8 right-8 bottom-0 h-[2.5px] rounded-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
                 style={{ backgroundColor: w.accent }}

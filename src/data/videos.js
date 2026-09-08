@@ -8,7 +8,7 @@ export const videos = [
     category: 'Health Camp',
     duration: '3:25',
     youtubeId: 's0Q1tPMQ7nM',
-    thumbnail: '/src/assets/images/videos/kanti-nagar-thumb.jpg',
+    thumbnail: '/image7.jpeg',
   },
   // {
   //   id: 'community-awareness',
@@ -24,6 +24,6 @@ export const videos = [
     category: 'Civic Program',
     duration: '5:02',
     youtubeId: 'grhjQ4Odr2o',
-    thumbnail: 'https://img.youtube.com/vi/grhjQ4Odr2o/maxresdefault.jpg',
+    thumbnail: '/image38.jpeg',
   },
 ]

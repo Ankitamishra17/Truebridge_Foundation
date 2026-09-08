@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react'
 import Container from '../common/Container.jsx'
 import SectionHeading from '../common/SectionHeading.jsx'
 import PrimaryButton from '../common/PrimaryButton.jsx'
@@ -6,6 +7,29 @@ import QuoteCard from './QuoteCard.jsx'
 import { events } from '../../data/events.js'
 
 export default function LatestEvents() {
+  const scrollerRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const el = scrollerRef.current
+    if (!el) return
+
+    const onScroll = () => {
+      const cardWidth = el.firstChild ? el.firstChild.offsetWidth + 16 : 1 // + gap
+      const index = Math.round(el.scrollLeft / cardWidth)
+      setActiveIndex(Math.max(0, Math.min(index, events.length - 1)))
+    }
+
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const scrollToIndex = (i) => {
+    const el = scrollerRef.current
+    if (!el || !el.children[i]) return
+    el.scrollTo({ left: el.children[i].offsetLeft - 20, behavior: 'smooth' })
+  }
+
   return (
     <section className="bg-[#FAFAF8]">
       <Container className="py-16 sm:py-20">
@@ -25,11 +49,34 @@ export default function LatestEvents() {
               </div>
             </div>
 
-            <div className="mt-10 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
-              {events.map((event, i) => (
-                <div key={event.id} className="w-[85%] sm:w-auto flex-shrink-0">
-                  <EventCard event={event} index={i} />
-                </div>
+            {/* mobile scroll area with edge fade + snap */}
+            <div className="relative mt-8 sm:mt-10">
+              <div
+                ref={scrollerRef}
+                className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0 pb-1"
+              >
+                {events.map((event, i) => (
+                  <div
+                    key={event.id}
+                    className="w-full sm:w-auto flex-shrink-0 snap-center"
+                  >
+                    <EventCard event={event} index={i} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* scroll progress dots, mobile only */}
+            <div className="mt-5 flex sm:hidden items-center justify-center gap-1.5">
+              {events.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Go to event ${i + 1}`}
+                  onClick={() => scrollToIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    activeIndex === i ? 'w-6 bg-[#0F8B8D]' : 'w-1.5 bg-[#0F8B8D]/25'
+                  }`}
+                />
               ))}
             </div>
 

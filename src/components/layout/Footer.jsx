@@ -25,14 +25,8 @@ export default function Footer() {
       {/* top accent line */}
       <div className="h-[3px] w-full bg-gradient-to-r from-[#0F8B8D] via-[#0F8B8D] to-[#FF6B4A]" />
 
-      {/* faint dot texture, top-right */}
-      <svg className="absolute -top-4 right-0 w-72 h-72 opacity-[0.06] pointer-events-none" viewBox="0 0 200 200">
-        {Array.from({ length: 6 }).map((_, row) =>
-          Array.from({ length: 6 }).map((_, col) => (
-            <circle key={`${row}-${col}`} cx={20 + col * 32} cy={20 + row * 32} r="2.5" fill="#FFFFFF" />
-          ))
-        )}
-      </svg>
+    
+     
 
       {/* newsletter strip */}
       <div className="border-b border-white/10">
