@@ -30,11 +30,12 @@ export default function HeroSection() {
 
       {/* Mobile Overlay */}
       <div
-        className="sm:hidden absolute inset-0 z-[1]"
+        className="sm:hidden absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(255,249,243,0.99) 0%, rgba(255,249,243,0.96) 45%, rgba(255,249,243,0.82) 75%, rgba(255,249,243,0.55) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.75) 55%, rgba(255,255,255,0.3) 78%, rgba(255,255,255,0) 100%)",
         }}
+        aria-hidden="true"
       />
 
       {/* Content */}
@@ -59,7 +60,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Small Heading */}
-          <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-[#0F8B8D] font-body">
+          <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-[#0F8B8D] font-body -mt-8">
             HEALTH &bull; EDUCATION &bull; COMMUNITY
           </p>
 
@@ -89,7 +90,8 @@ export default function HeroSection() {
               sm:text-[15px]
               leading-[1.55]
               text-[#64748B]
-              max-w-md
+              max-w-[190px]
+              sm:max-w-md
             "
           >
             Truebridge Empowerment Echo Foundation is building healthier

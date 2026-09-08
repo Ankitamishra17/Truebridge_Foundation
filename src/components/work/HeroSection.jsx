@@ -44,16 +44,6 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* Soft White Glow */}
-      <div
-        className="pointer-events-none absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full opacity-20 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
-
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-[calc(100vh-100px)] flex items-center">
         <div className="w-full">
@@ -65,7 +55,7 @@ export default function Hero() {
             className="max-w-2xl py-14 sm:py-16"
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm mb-5">
+            <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
               <a
                 href="/"
                 className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
@@ -105,7 +95,8 @@ export default function Hero() {
                 sm:text-[17px]
                 leading-relaxed
                 text-[#032D46]/75
-                max-w-xl
+                max-w-[190px]
+                sm:max-w-md
               "
             >
               We run health camps, blood donation drives, community recognition
@@ -161,17 +152,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="
-              mt-2
-              sm:mt-4
-              flex
-              flex-wrap
-              gap-x-10
-              gap-y-6
-              border-t
-              border-[#032D46]/10
-              pt-6
-              pb-8
-            "
+    mt-2
+    sm:mt-4
+    flex
+    flex-nowrap
+    gap-x-3
+    sm:gap-x-10
+    border-t
+    border-[#032D46]/10
+    pt-5
+    sm:pt-6
+    pb-6
+    sm:pb-8
+  "
           >
             {[
               {
@@ -187,19 +180,23 @@ export default function Hero() {
                 label: "for everyone who attends",
               },
             ].map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="flex-1 min-w-0">
                 <p
                   className="
-                    font-display
-                    text-[23px]
-                    font-semibold
-                    text-[#032D46]
-                  "
+          font-display
+          text-[18px]
+          sm:text-[23px]
+          font-semibold
+          text-[#032D46]
+          whitespace-nowrap
+        "
                 >
                   {stat.value}
                 </p>
 
-                <p className="text-[14px] text-[#032D46]/65">{stat.label}</p>
+                <p className="text-[11px] sm:text-[14px] text-[#032D46]/65 leading-tight">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </motion.div>

@@ -41,7 +41,7 @@ export default function GalleryHero() {
           className="max-w-xl"
         >
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm mb-4">
+          <div className="flex items-center gap-2 text-sm mb-4 -mt-8">
             <a
               href="/"
               className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
@@ -55,12 +55,12 @@ export default function GalleryHero() {
           </div>
 
           {/* Heading */}
-          <h1 className="mt-3 font-display text-[30px] xs:text-[34px] sm:text-[40px] lg:text-[46px] leading-[1.15] sm:leading-[1.1] font-semibold text-[#063B5C]">
+          <h1 className="mt-3 font-display max-w-[190px] sm:max-w-md text-[30px] xs:text-[34px] sm:text-[40px] lg:text-[46px] leading-[1.15] sm:leading-[1.1] font-semibold text-[#063B5C]">
             Moments That Define Our Journey
           </h1>
 
           {/* Description */}
-          <p className="mt-6 text-[14px] sm:text-[17px] leading-relaxed text-[#64748B] max-w-lg">
+          <p className="mt-6 text-[14px] sm:text-[17px] leading-relaxed text-[#64748B] max-w-[190px] sm:max-w-md">
             A look back at our health camps, awareness drives and community
             events — captured through the people who make them possible.
           </p>

@@ -54,7 +54,7 @@ export default function EventsHero() {
             className="max-w-2xl py-14 sm:py-16"
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm mb-5">
+            <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
               <a
                 href="/"
                 className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
@@ -71,11 +71,11 @@ export default function EventsHero() {
             <h1 className="font-display text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.08] font-semibold text-[#063B5C]">
               Moments That Create
               <br />
-              Lasting <span className="text-[#0F8B8D]">Change</span>
+              Lasting <span className="text-[#0F8B8D] ">Change</span>
             </h1>
 
             {/* Description */}
-            <p className="mt-6 text-[16px] sm:text-[17px] leading-relaxed text-[#64748B] max-w-xl">
+            <p className="mt-6 text-[16px] sm:text-[17px] leading-relaxed text-[#64748B] max-w-[190px] sm:max-w-md ">
               From health camps to awareness drives, our events bring
               communities together for a healthier, stronger and more empowered
               tomorrow.

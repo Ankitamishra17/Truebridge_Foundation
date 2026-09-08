@@ -53,7 +53,7 @@ export default function ContactHero() {
             className="max-w-2xl py-12 sm:py-16"
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm mb-5">
+            <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
               <a
                 href="/"
                 className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
@@ -91,7 +91,8 @@ export default function ContactHero() {
                 lg:text-[17px]
                 leading-[1.6]
                 text-[#032D46]/75
-                max-w-lg
+                max-w-[190px]
+                sm:max-w-md
               "
             >
               Whether you want to volunteer, partner on a camp, or just ask a
@@ -130,7 +131,7 @@ export default function ContactHero() {
                 </p>
 
                 <p className="text-[13px] sm:text-[15px] font-semibold text-[#032D46]">
-                  +91 00000 00000
+                  +91 XXXXXXXXX
                 </p>
               </div>
             </div>
