@@ -65,7 +65,7 @@ export default function EventsHero() {
               leading-[1.35] sm:leading-[1.4] lg:leading-[1.1]
               font-semibold
               text-[#063B5C]
-              max-w-[280px] sm:max-w-[320px] lg:max-w-none
+              max-w-[280px] sm:max-w-[30px] lg:max-w-none
             "
             >
               Moments That Create
