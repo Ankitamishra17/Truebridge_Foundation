@@ -1,3 +1,4 @@
+
 import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Link } from "react-router-dom";
@@ -43,10 +44,10 @@ export default function WorkInAction() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
-            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#0F8B8D]">
+            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#00a85a]">
               OUR WORK IN ACTION
             </p>
-            <h2 className="mt-3 font-display text-[30px] sm:text-[38px] leading-[1.15] font-semibold text-[#063B5C]">
+            <h2 className="mt-3 font-display text-[30px] sm:text-[38px] leading-[1.15] font-semibold text-[#3e4095]">
               Creating Change
               <br />
               On The Ground
@@ -54,7 +55,7 @@ export default function WorkInAction() {
           </div>
           <Link
             to="/gallery"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border-2 border-[#0F8B8D] text-[#0F8B8D] text-[14px] font-semibold hover:bg-[#0F8B8D] hover:text-white transition-colors flex-shrink-0 self-start"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border-2 border-[#00a85a] text-[#00a85a] text-[14px] font-semibold hover:bg-[#00a85a] hover:text-white transition-colors flex-shrink-0 self-start"
           >
             View More <ArrowRight size={15} />
           </Link>
@@ -70,7 +71,7 @@ export default function WorkInAction() {
               <div
                 key={p.alt}
                 ref={(el) => (itemRefs.current[i] = el)}
-                className="snap-center sm:snap-align-none flex-shrink-0 w-full sm:w-auto aspect-[3/4] rounded-2xl overflow-hidden bg-[#EDF1F5]"
+                className="snap-center sm:snap-align-none flex-shrink-0 w-full sm:w-auto aspect-[3/4] rounded-2xl overflow-hidden bg-[#E6E7F2]"
               >
                 <img src={p.src} alt={p.alt} className="w-full h-full object-cover" />
               </div>
@@ -86,7 +87,7 @@ export default function WorkInAction() {
               onClick={() => goTo(i)}
               aria-label={`Go to photo ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeIndex === i ? 'w-6 bg-[#0F8B8D]' : 'w-1.5 bg-[#EDF1F5]'
+                activeIndex === i ? 'w-6 bg-[#00a85a]' : 'w-1.5 bg-[#E6E7F2]'
               }`}
             />
           ))}
@@ -95,3 +96,4 @@ export default function WorkInAction() {
     </section>
   )
 }
+

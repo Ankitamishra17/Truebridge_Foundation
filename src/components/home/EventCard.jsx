@@ -20,17 +20,17 @@ export default function EventCard({ event, index }) {
       />
       <div className="p-6 flex gap-4 flex-1">
         <div className="flex-shrink-0 text-center">
-          <p className="font-display font-bold text-[26px] text-[#063B5C] leading-none">{event.date}</p>
-          <p className="text-[12px] font-semibold text-[#0F8B8D] uppercase mt-1">{event.month}</p>
+          <p className="font-display font-bold text-[26px] text-[#3E4095] leading-none">{event.date}</p>
+          <p className="text-[12px] font-semibold text-[#00A85A] uppercase mt-1">{event.month}</p>
         </div>
         <div className="border-l border-[#EDF1F5] pl-4 flex flex-col flex-1">
-          <h3 className="font-display font-semibold text-[16px] text-[#063B5C] leading-snug">{event.title}</h3>
+          <h3 className="font-display font-semibold text-[16px] text-[#3E4095] leading-snug">{event.title}</h3>
           <p className="flex items-center gap-1 text-[13px] text-[#64748B] mt-1.5">
             <MapPin size={13} /> {event.place}
           </p>
           <Link
             to="/events"
-            className="mt-auto pt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[#FF6B4A]"
+            className="mt-auto pt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[#FF6634]"
           >
             Read More <ArrowRight size={13} />
           </Link>

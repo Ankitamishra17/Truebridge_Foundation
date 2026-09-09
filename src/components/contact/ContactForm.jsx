@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Phone, Mail, CheckCircle2, User, MessageSquare, Send, Loader2 } from 'lucide-react'
@@ -7,23 +8,23 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Address',
-    value: 'Shahdara, Delhi NCR',
-    accent: '#FF6B4A',
-    accentBg: '#FDE7E2',
+    value: 'D52 A West Jyoti Nagar Gali no.4 Shahdara Delhi 110094 ',
+    accent: '#ff6634',
+    accentBg: '#FFF0EB',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+91 00000 00000',
-    accent: '#0F8B8D',
-    accentBg: '#E1F2F1',
+    value: '+91 9205545850',
+    accent: '#00a85a',
+    accentBg: '#E8F7EF',
   },
   {
     icon: Mail,
     label: 'Email',
-    value: 'contact@truebridgefoundation.org',
-    accent: '#C98A1F',
-    accentBg: '#FCEFD6',
+    value: 'truebridgeempowermentechofound@gmail.com',
+    accent: '#3e4095',
+    accentBg: '#EEEEFA',
   },
 ]
 
@@ -44,15 +45,15 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-[#FAFAF8] border-b border-[#EDF1F5]">
+      <section className="relative overflow-hidden bg-[#FAFAF8] border-b border-[#E6E7F2]">
         <span
           className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full opacity-30 blur-3xl"
-          style={{ background: '#E1F2F1' }}
+          style={{ background: '#E8F7EF' }}
           aria-hidden="true"
         />
         <span
           className="pointer-events-none absolute -top-10 right-0 w-56 h-56 rounded-full opacity-30 blur-3xl"
-          style={{ background: '#FDE7E2' }}
+          style={{ background: '#FFF0EB' }}
           aria-hidden="true"
         />
 
@@ -63,15 +64,17 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center justify-center gap-2">
-              <span className="w-6 h-px bg-[#FF6B4A]" />
-              <p className="text-[13px] font-bold tracking-widest text-[#0F8B8D]">
+              <span className="w-6 h-px bg-[#ff6634]" />
+              <p className="text-[13px] font-bold tracking-widest text-[#00a85a]">
                 CONTACT US
               </p>
-              <span className="w-6 h-px bg-[#FF6B4A]" />
+              <span className="w-6 h-px bg-[#ff6634]" />
             </div>
-            <h1 className="mt-4 font-display text-[32px] sm:text-[40px] font-semibold text-[#063B5C]">
+
+            <h1 className="mt-4 font-display text-[32px] sm:text-[40px] font-semibold text-[#3e4095]">
               Get In Touch
             </h1>
+
             <p className="mt-4 text-[16px] text-[#64748B] max-w-xl mx-auto">
               Have a question, want to volunteer, or looking to partner with us? We'd
               love to hear from you.
@@ -94,7 +97,7 @@ export default function Contact() {
             return (
               <div
                 key={item.label}
-                className="group flex gap-4 items-center p-4 rounded-2xl border border-[#EDF1F5] bg-white transition-all duration-300 hover:border-transparent hover:shadow-[0_8px_24px_rgba(6,59,92,0.08)]"
+                className="group flex gap-4 items-center p-4 rounded-2xl border border-[#E6E7F2] bg-white transition-all duration-300 hover:border-transparent hover:shadow-[0_8px_24px_rgba(62,64,149,0.08)]"
               >
                 <span
                   className="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
@@ -102,24 +105,25 @@ export default function Contact() {
                 >
                   <Icon size={18} style={{ color: item.accent }} />
                 </span>
+
                 <div>
-                  <h3 className="font-semibold text-[15px] text-[#063B5C]">{item.label}</h3>
+                  <h3 className="font-semibold text-[15px] text-[#3e4095]">{item.label}</h3>
                   <p className="text-[15px] text-[#64748B] mt-0.5">{item.value}</p>
                 </div>
               </div>
             )
           })}
 
-          <div className="relative rounded-2xl overflow-hidden border border-[#EDF1F5] h-56 mt-4">
+          <div className="relative rounded-2xl overflow-hidden border border-[#E6E7F2] h-56 mt-4">
             <iframe
               title="Foundation location"
               className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
               loading="lazy"
-              src="https://www.google.com/maps?q=Shahdara,Delhi&output=embed"
+              src="https://www.google.com/maps?q=D52%20A%20West%20Jyoti%20Nagar%20Gali%20No%204%2C%20Shahdara%2C%20Delhi%20110094&output=embed"
             />
             <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-1.5 bg-white rounded-md shadow-md px-3 py-1.5">
-              <MapPin size={13} className="text-[#FF6B4A]" />
-              <span className="text-[12.5px] font-semibold text-[#063B5C]">Find us here</span>
+              <MapPin size={13} className="text-[#ff6634]" />
+              <span className="text-[12.5px] font-semibold text-[#3e4095]">Find us here</span>
             </div>
           </div>
         </motion.div>
@@ -130,13 +134,13 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="relative bg-[#FFF9F3] border border-[#EDF1F5] rounded-2xl p-7 sm:p-9 overflow-hidden"
+          className="relative bg-[#FFF9F3] border border-[#E6E7F2] rounded-2xl p-7 sm:p-9 overflow-hidden"
         >
           {/* top accent + soft glow, consistent with the site's card language */}
-          <span className="absolute top-0 left-0 right-0 h-1 bg-[#0F8B8D]" aria-hidden="true" />
+          <span className="absolute top-0 left-0 right-0 h-1 bg-[#00a85a]" aria-hidden="true" />
           <span
             className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-30 blur-3xl"
-            style={{ background: '#E1F2F1' }}
+            style={{ background: '#E8F7EF' }}
             aria-hidden="true"
           />
 
@@ -153,23 +157,26 @@ export default function Contact() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
-                  className="w-16 h-16 rounded-md bg-[#EAF8F7] flex items-center justify-center"
+                  className="w-16 h-16 rounded-md bg-[#E8F7EF] flex items-center justify-center"
                 >
-                  <CheckCircle2 size={32} className="text-[#0F8B8D]" />
+                  <CheckCircle2 size={32} className="text-[#00a85a]" />
                 </motion.span>
-                <h3 className="mt-5 font-display text-[22px] font-semibold text-[#063B5C]">
+
+                <h3 className="mt-5 font-display text-[22px] font-semibold text-[#3e4095]">
                   Message sent
                 </h3>
+
                 <p className="mt-2 text-[15px] text-[#64748B] max-w-xs">
                   Thanks for reaching out — someone from the team will get back to you
                   shortly.
                 </p>
+
                 <button
                   onClick={() => {
                     setForm({ name: '', email: '', phone: '', message: '' })
                     setStatus('idle')
                   }}
-                  className="mt-6 text-[14px] font-semibold text-[#FF6B4A] hover:underline"
+                  className="mt-6 text-[14px] font-semibold text-[#ff6634] hover:underline"
                 >
                   Send another message
                 </button>
@@ -185,9 +192,10 @@ export default function Contact() {
                 className="relative space-y-5"
               >
                 <div>
-                  <label htmlFor="name" className="block text-[14px] font-medium text-[#063B5C] mb-1.5">
+                  <label htmlFor="name" className="block text-[14px] font-medium text-[#3e4095] mb-1.5">
                     Full name
                   </label>
+
                   <div className="relative">
                     <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
                     <input
@@ -196,7 +204,7 @@ export default function Contact() {
                       required
                       value={form.name}
                       onChange={handleChange}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E6E7F2] bg-white text-[15px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
                       placeholder="Your name"
                     />
                   </div>
@@ -204,9 +212,10 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="email" className="block text-[14px] font-medium text-[#063B5C] mb-1.5">
+                    <label htmlFor="email" className="block text-[14px] font-medium text-[#3e4095] mb-1.5">
                       Email
                     </label>
+
                     <div className="relative">
                       <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
                       <input
@@ -216,15 +225,17 @@ export default function Contact() {
                         required
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E6E7F2] bg-white text-[15px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
                         placeholder="you@email.com"
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label htmlFor="phone" className="block text-[14px] font-medium text-[#063B5C] mb-1.5">
+                    <label htmlFor="phone" className="block text-[14px] font-medium text-[#3e4095] mb-1.5">
                       Phone
                     </label>
+
                     <div className="relative">
                       <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
                       <input
@@ -232,17 +243,18 @@ export default function Contact() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
-                        placeholder="+91"
+                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E6E7F2] bg-white text-[15px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
+                        placeholder="+91 XXXXXXXXXX"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[14px] font-medium text-[#063B5C] mb-1.5">
+                  <label htmlFor="message" className="block text-[14px] font-medium text-[#3e4095] mb-1.5">
                     Message
                   </label>
+
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-4 top-3.5 text-[#94A3B8]" />
                     <textarea
@@ -252,7 +264,7 @@ export default function Contact() {
                       rows={5}
                       value={form.message}
                       onChange={handleChange}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#EDF1F5] bg-white text-[15px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all resize-none"
+                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E6E7F2] bg-white text-[15px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all resize-none"
                       placeholder="Tell us how you'd like to help, or what you need"
                     />
                   </div>
@@ -261,7 +273,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold hover:bg-[#F0572F] disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-[#ff6634] text-white text-[15px] font-semibold hover:bg-[#ff6634] disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
                 >
                   {status === 'sending' ? (
                     <>
@@ -283,3 +295,4 @@ export default function Contact() {
     </div>
   )
 }
+

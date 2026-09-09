@@ -18,7 +18,7 @@ export default function EventsHero() {
         className="hidden sm:block absolute inset-0 bg-no-repeat bg-right"
         style={{
           backgroundImage: "url('/event_banner.png')",
-          backgroundSize: "auto 100%",
+          backgroundSize: "100% 100%",
         }}
         aria-hidden="true"
       />
@@ -47,14 +47,14 @@ export default function EventsHero() {
             <div className="flex items-center gap-2 text-sm mb-5 -mt-8">
               <a
                 href="/"
-                className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
+                className="text-[#64748B] hover:text-[#00A85A] transition-colors"
               >
                 Home
               </a>
 
               <span className="text-[#94A3B8]">/</span>
 
-              <span className="font-medium text-[#0F8B8D]">Our Events</span>
+              <span className="font-medium text-[#00A85A]">Our Events</span>
             </div>
 
             {/* Heading */}
@@ -64,13 +64,13 @@ export default function EventsHero() {
               text-[34px] sm:text-[40px]
               leading-[1.35] sm:leading-[1.4] lg:leading-[1.1]
               font-semibold
-              text-[#063B5C]
+              text-[#3E4095]
               max-w-[280px] sm:max-w-[30px] lg:max-w-none
             "
             >
               Moments That Create
               <br />
-              Lasting <span className="text-[#0F8B8D]">Change</span>
+              Lasting <span className="text-[#00A85A]">Change</span>
             </h1>
 
             {/* Description */}

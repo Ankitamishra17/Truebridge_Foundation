@@ -53,18 +53,18 @@ export default function GalleryHero() {
           <div className="flex items-center gap-2 text-sm mb-4 -mt-8">
             <Link
               to="/"
-              className="text-[#64748B] hover:text-[#0F8B8D] transition-colors"
+              className="text-[#64748B] hover:text-[#00A85A] transition-colors"
             >
               Home
             </Link>
 
             <span className="text-[#94A3B8]">/</span>
 
-            <span className="font-medium text-[#0F8B8D]">Gallery</span>
+            <span className="font-medium text-[#00A85A]">Gallery</span>
           </div>
 
           {/* Heading */}
-          <h1 className="mt-3 font-display max-w-[190px] sm:max-w-md text-[34px] sm:text-[40px] leading-[1.1] sm:leading-[1.1] font-semibold text-[#063B5C]">
+          <h1 className="mt-3 font-display max-w-[190px] sm:max-w-md text-[34px] sm:text-[40px] leading-[1.1] sm:leading-[1.1] font-semibold text-[#3E4095]">
             Moments That Define Our Journey
           </h1>
 
@@ -76,11 +76,11 @@ export default function GalleryHero() {
 
           {/* Tagline */}
           <p
-            className="mt-7 flex items-center gap-2 text-xl sm:text-2xl lg:text-3xl text-[#063B5C]"
+            className="mt-7 flex items-center gap-2 text-xl sm:text-2xl lg:text-3xl text-[#3E4095]"
             style={{ fontFamily: "Caveat, cursive" }}
           >
             Together for a Better Tomorrow
-            <Heart size={20} className="text-[#FF6B4A] fill-[#FF6B4A]" />
+            <Heart size={20} className="text-[#FF6634] fill-[#FF6634]" />
           </p>
         </motion.div>
       </Container>
@@ -100,16 +100,16 @@ export default function GalleryHero() {
           gap-2.5
           bg-white
           rounded-xl
-          shadow-[0_12px_30px_rgba(6,59,92,0.15)]
+          shadow-[0_12px_30px_rgba(62,64,149,0.18)]
           px-4
           py-3
         "
       >
-        <span className="w-8 h-8 rounded-full bg-[#EAF8F7] flex items-center justify-center flex-shrink-0">
-          <Heart size={15} className="text-[#0F8B8D]" />
+        <span className="w-8 h-8 rounded-full bg-[#E6F8EE] flex items-center justify-center flex-shrink-0">
+          <Heart size={15} className="text-[#00A85A]" />
         </span>
 
-        <span className="font-display font-semibold text-[13px] leading-tight text-[#063B5C]">
+        <span className="font-display font-semibold text-[13px] leading-tight text-[#3E4095]">
           Small Actions
           <br />
           Big Change

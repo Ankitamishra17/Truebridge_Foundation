@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, ChevronLeft, ChevronRight, Images, X } from 'lucide-react'
 
 // Each event can carry as many images as you have — 1 or many, handled the same way.
-// Replace the placeholder paths with your real photo paths.
+// Image paths are unchanged from your original file.
 const events = [
   {
     date: '15 Dec 2024',
@@ -51,9 +51,9 @@ const events = [
 const categories = ['All', 'Health Camp', 'Recognition', 'Civic Program']
 
 const typeStyles = {
-  'Health Camp': { bg: '#FDE7E2', text: '#FF6B4A' },
+  'Health Camp': { bg: '#FDE7E2', text: '#FF6634' },
   Recognition: { bg: '#FCEFD6', text: '#C98A1F' },
-  'Civic Program': { bg: '#E1F2F1', text: '#0F8B8D' },
+  'Civic Program': { bg: '#E1F2F1', text: '#00A85A' },
 }
 
 function parseDate(dateStr) {
@@ -65,8 +65,8 @@ function DateBadge({ date }) {
   const { day, month } = parseDate(date)
   return (
     <div className="absolute top-3 left-3 bg-white rounded-xl px-2.5 py-1.5 text-center leading-none shadow-sm">
-      <p className="font-display text-[16px] font-bold text-[#063B5C]">{day}</p>
-      <p className="text-[10px] font-semibold tracking-wide text-[#0F8B8D] uppercase">{month}</p>
+      <p className="font-display text-[16px] font-bold text-[#3E4095]">{day}</p>
+      <p className="text-[10px] font-semibold tracking-wide text-[#00A85A] uppercase">{month}</p>
     </div>
   )
 }
@@ -163,10 +163,10 @@ function EventGallery({ images, title, className = '', autoPlayMs = 3000 }) {
 function EventDetailBody({ event }) {
   return (
     <div className="p-6 sm:p-8 flex flex-col justify-center">
-      <p className="text-[13px] font-semibold tracking-[0.1em] text-[#0F8B8D] uppercase">
+      <p className="text-[13px] font-semibold tracking-[0.1em] text-[#00A85A] uppercase">
         {event.type}
       </p>
-      <h3 className="mt-2 font-display text-[24px] sm:text-[28px] font-semibold text-[#063B5C] leading-tight">
+      <h3 className="mt-2 font-display text-[24px] sm:text-[28px] font-semibold text-[#3E4095] leading-tight">
         {event.title}
       </h3>
       <p className="mt-2 flex items-center gap-1.5 text-[14px] text-[#64748B]">
@@ -186,7 +186,7 @@ function FeaturedEvent({ event, onOpen }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       onClick={() => onOpen(event)}
-      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-md transition-shadow duration-300"
+      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-[0_1px_2px_rgba(62,64,149,0.04)] hover:shadow-md transition-shadow duration-300"
     >
       <div className="relative">
         <EventGallery images={event.images} title={event.title} className="aspect-[4/3] lg:aspect-auto lg:h-full" />
@@ -194,7 +194,7 @@ function FeaturedEvent({ event, onOpen }) {
         <TypeTag type={event.type} />
       </div>
       <div>
-        <p className="pt-6 sm:pt-8 px-6 sm:px-8 text-[13px] font-semibold tracking-[0.1em] text-[#0F8B8D] uppercase">
+        <p className="pt-6 sm:pt-8 px-6 sm:px-8 text-[13px] font-semibold tracking-[0.1em] text-[#00A85A] uppercase">
           Latest event
         </p>
         <EventDetailBody event={{ ...event, type: undefined }} />
@@ -211,7 +211,7 @@ function EventCard({ event, i, onOpen }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.05 }}
       onClick={() => onOpen(event)}
-      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden flex flex-col shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+      className="group cursor-pointer bg-white rounded-2xl border border-[#EDF1F5] overflow-hidden flex flex-col shadow-[0_1px_2px_rgba(62,64,149,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
     >
       <div className="relative">
         <EventGallery images={event.images} title={event.title} className="aspect-[4/3]" />
@@ -220,7 +220,7 @@ function EventCard({ event, i, onOpen }) {
       </div>
 
       <div className="p-5 sm:p-6 flex flex-col flex-1">
-        <h3 className="font-display text-[17px] font-semibold text-[#063B5C] leading-snug">
+        <h3 className="font-display text-[17px] font-semibold text-[#3E4095] leading-snug">
           {event.title}
         </h3>
         <p className="mt-1.5 flex items-center gap-1.5 text-[13.5px] text-[#64748B]">
@@ -249,7 +249,7 @@ function EventModal({ event, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-[#032D46]/80 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-[#3E4095]/80 backdrop-blur-sm flex items-center justify-center p-4"
       onClick={onClose}
     >
       <motion.div
@@ -263,7 +263,7 @@ function EventModal({ event, onClose }) {
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#063B5C] hover:bg-[#EDF1F5] transition-colors"
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#3E4095] hover:bg-[#EDF1F5] transition-colors"
         >
           <X size={16} />
         </button>
@@ -300,10 +300,10 @@ export default function EventsGrid() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#0F8B8D]">
+            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#00A85A]">
               OUR EVENTS
             </p>
-            <h2 className="mt-3 font-display text-[28px] sm:text-[36px] leading-[1.15] font-semibold text-[#063B5C]">
+            <h2 className="mt-3 font-display text-[28px] sm:text-[36px] leading-[1.15] font-semibold text-[#3E4095]">
               Recent moments from the ground
             </h2>
           </div>
@@ -315,8 +315,8 @@ export default function EventsGrid() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-md text-[13.5px] font-semibold border transition-colors ${
                   activeCategory === cat
-                    ? 'bg-[#063B5C] text-white border-[#063B5C]'
-                    : 'bg-white text-[#63748B] border-[#EDF1F5] hover:border-[#0F8B8D]/40'
+                    ? 'bg-[#3E4095] text-white border-[#3E4095]'
+                    : 'bg-white text-[#63748B] border-[#EDF1F5] hover:border-[#00A85A]/40'
                 }`}
               >
                 {cat}

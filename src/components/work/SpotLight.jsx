@@ -1,3 +1,4 @@
+
 import { FlagTriangleRight, Stethoscope, Palette, ArrowRight } from 'lucide-react'
 import { Link } from "react-router-dom";
 
@@ -25,21 +26,21 @@ const moments = [
 
 export default function Spotlight() {
   return (
-    <section id="spotlight" className="bg-[#EAF6F3] py-16 sm:py-20">
+    <section id="spotlight" className="bg-[#E6F6EF] py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 lg:gap-14 items-center">
           {/* Left: copy */}
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-6 h-px bg-[#FF6B4A]" />
-              <p className="text-[13px] font-semibold tracking-[0.14em] text-[#063B5C]">
+              <span className="w-6 h-px bg-[#ff6634]" />
+              <p className="text-[13px] font-semibold tracking-[0.14em] text-[#3e4095]">
                 IN FOCUS
               </p>
             </div>
-            <h2 className="mt-4 font-display text-[26px] sm:text-[32px] leading-[1.15] font-semibold text-[#063B5C]">
+            <h2 className="mt-4 font-display text-[26px] sm:text-[32px] leading-[1.15] font-semibold text-[#3e4095]">
               A Day Of Service And Celebration
             </h2>
-            <p className="mt-3 text-[15px] font-semibold text-[#0F8B8D]">
+            <p className="mt-3 text-[15px] font-semibold text-[#00a85a]">
               Republic Day: Health, Awareness &amp; Community Spirit
             </p>
             <p className="mt-3 text-[15px] leading-relaxed text-[#5B6B76] max-w-sm">
@@ -48,7 +49,7 @@ export default function Spotlight() {
             </p>
             <Link
               to="/gallery"
-              className="mt-7 inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#032D46] text-white text-[14px] font-semibold hover:bg-[#063B5C] transition-colors"
+              className="mt-7 inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#3e4095] text-white text-[14px] font-semibold hover:bg-[#3e4095] transition-colors"
             >
               View Event Gallery <ArrowRight size={16} />
             </Link>
@@ -60,19 +61,19 @@ export default function Spotlight() {
               {moments.map((m) => (
                 <div key={m.title}>
                   <div className="relative">
-                    <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#CFE3DF]">
+                    <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#DDF0E8]">
                       <img
                         src={m.image}
                         alt={m.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <span className="absolute -bottom-5 left-5 w-11 h-11 rounded-full bg-[#032D46] border-4 border-[#EAF6F3] flex items-center justify-center">
+                    <span className="absolute -bottom-5 left-5 w-11 h-11 rounded-full bg-[#3e4095] border-4 border-[#E6F6EF] flex items-center justify-center">
                       <m.icon size={16} className="text-white" />
                     </span>
                   </div>
                   <div className="mt-7">
-                    <h3 className="font-display text-[15px] font-semibold text-[#063B5C]">
+                    <h3 className="font-display text-[15px] font-semibold text-[#3e4095]">
                       {m.title}
                     </h3>
                     <p className="mt-1 text-[13.5px] leading-relaxed text-[#5B6B76]">
@@ -90,3 +91,4 @@ export default function Spotlight() {
     </section>
   )
 }
+

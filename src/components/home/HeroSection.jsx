@@ -60,7 +60,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Small Heading */}
-          <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-[#0F8B8D] font-body -mt-8">
+          <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-[#00A85A] font-body -mt-8">
             HEALTH &bull; EDUCATION &bull; COMMUNITY
           </p>
 
@@ -73,12 +73,12 @@ export default function HeroSection() {
              text-[34px]
               sm:text-[40px]
               leading-[1.1]
-              text-[#063B5C]
+              text-[#3E4095]
             "
           >
             Bridging Today for a
             <br />
-            <span className="text-[#0F8B8D]">Better Tomorrow</span>
+            <span className="text-[#00A85A]">Better Tomorrow</span>
           </h1>
 
           {/* Description */}

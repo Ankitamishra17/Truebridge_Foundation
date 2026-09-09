@@ -1,11 +1,12 @@
+
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const variants = {
-  coral: 'bg-[#FF6B4A] text-white hover:bg-[#F0572F]',
-  navy: 'bg-[#063B5C] text-white hover:bg-[#052E48]',
-  teal: 'bg-[#0F8B8D] text-white hover:bg-[#0C7375]',
-  outline: 'bg-transparent border-2 border-[#0F8B8D] text-[#0F8B8D] hover:bg-[#EAF8F7]',
+  coral: 'bg-[#ff6634] text-white hover:bg-[#ff6634]',
+  navy: 'bg-[#3e4095] text-white hover:bg-[#3e4095]',
+  teal: 'bg-[#00a85a] text-white hover:bg-[#00a85a]',
+  outline: 'bg-transparent border-2 border-[#00a85a] text-[#00a85a] hover:bg-[#E6F6EF]',
   'outline-light': 'bg-transparent border-2 border-white/70 text-white hover:bg-white/10',
 }
 
@@ -50,3 +51,4 @@ export default function PrimaryButton({
     </button>
   )
 }
+

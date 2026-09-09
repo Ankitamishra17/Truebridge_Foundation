@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion'
 import { Users, HeartPulse, Briefcase, ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -10,24 +11,24 @@ const ways = [
     title: 'Volunteer',
     description: 'Join our team and contribute your time and skills.',
     cta: 'Join Now',
-    accent: '#3B6FE0',
-    tint: '#EEF3FE',
+    accent: '#3E4095',
+    tint: '#EEEEFA',
   },
   {
     icon: HeartPulse,
     title: 'Partner With Us',
     description: 'Collaborate for a greater impact.',
     cta: 'Partner Now',
-    accent: '#0F8B8D',
-    tint: '#EAF8F7',
+    accent: '#00A85A',
+    tint: '#E8F7EF',
   },
   {
     icon: Briefcase,
     title: 'Donate',
     description: 'Help us reach more communities in need.',
     cta: 'Donate Now',
-    accent: '#FF6B4A',
-    tint: '#FFF1EC',
+    accent: '#FF6634',
+    tint: '#FFF0EB',
   },
 ]
 
@@ -50,7 +51,7 @@ export default function GetInvolved() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative bg-white rounded-[28px] p-8 border border-[#EDF1F5] shadow-[0_1px_2px_rgba(6,59,92,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(6,59,92,0.16)]"
+              className="group relative bg-white rounded-[28px] p-8 border border-[#E6E7F2] shadow-[0_1px_2px_rgba(62,64,149,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(62,64,149,0.16)]"
             >
               {/* icon */}
               <span
@@ -64,7 +65,7 @@ export default function GetInvolved() {
                 />
               </span>
 
-              <h3 className="mt-7 font-display font-semibold text-[19px] text-[#063B5C]">
+              <h3 className="mt-7 font-display font-semibold text-[19px] text-[#3E4095]">
                 {w.title}
               </h3>
 
@@ -99,3 +100,4 @@ export default function GetInvolved() {
     </section>
   )
 }
+

@@ -14,7 +14,7 @@ export default function ImageWithFallback({ src, alt, className = '', rounded = 
       <div
         className={`${className} ${rounded} flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#EAF8F7] to-[#FFF0EC] border border-[#0F8B8D]/15`}
       >
-        <ImageIcon size={28} className="text-[#0F8B8D]/50" />
+        <ImageIcon size={28} className="text-[#3e4095]/50" />
         <span className="text-[12px] text-[#64748B] px-4 text-center">{alt}</span>
       </div>
     )

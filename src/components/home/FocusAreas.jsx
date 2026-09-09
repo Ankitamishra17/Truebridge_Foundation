@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -13,33 +14,33 @@ const focusAreas = [
     icon: HeartPulse,
     title: "Healthcare",
     description: "Medical camps, health checkups and awareness programs.",
-    iconBg: "#EAF8F7",
-    iconColor: "#0F8B8D",
-    linkColor: "#0F8B8D",
+    iconBg: "#E8F7EF",
+    iconColor: "#00A85A",
+    linkColor: "#00A85A",
   },
   {
     icon: GraduationCap,
     title: "Education",
     description: "Skill development, awareness and learning opportunities.",
-    iconBg: "#FFF0EC",
-    iconColor: "#FF6B4A",
-    linkColor: "#FF6B4A",
+    iconBg: "#FFF0EB",
+    iconColor: "#FF6634",
+    linkColor: "#FF6634",
   },
   {
     icon: HandHeart,
     title: "Community Support",
     description: "Empowering underprivileged communities.",
-    iconBg: "#E9F1FA",
-    iconColor: "#063B5C",
-    linkColor: "#063B5C",
+    iconBg: "#ECECF9",
+    iconColor: "#3E4095",
+    linkColor: "#3E4095",
   },
   // {
   //   icon: Leaf,
   //   title: "Environment",
   //   description: "Awareness and initiatives for a cleaner, healthier tomorrow.",
   //   iconBg: "#EFFAF0",
-  //   iconColor: "#3E9B4F",
-  //   linkColor: "#3E9B4F",
+  //   iconColor: "#00A85A",
+  //   linkColor: "#00A85A",
   // },
 ];
 
@@ -51,16 +52,17 @@ export default function FocusAreas() {
         <div className="text-center mb-12">
           <h2
             className="text-3xl sm:text-4xl font-bold"
-            style={{ color: "#17324D", fontFamily: "Poppins, sans-serif" }}
+            style={{ color: "#3E4095", fontFamily: "Poppins, sans-serif" }}
           >
             Our Focus Areas
           </h2>
+
           {/* Underline */}
-          <span className="block mx-auto mt-3.5 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#0F8B8D] to-[#FF6B4A]" />
+          <span className="block mx-auto mt-3.5 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#00A85A] to-[#FF6634]" />
 
           <p
             className="mt-2 text-base sm:text-lg"
-            style={{ color: "#64748B", fontFamily: "Inter, sans-serif" }}
+            style={{ color: "#3E4095", fontFamily: "Inter, sans-serif" }}
           >
             Working together for healthier and stronger communities
           </p>
@@ -71,6 +73,7 @@ export default function FocusAreas() {
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
             {focusAreas.map((area, i) => {
               const Icon = area.icon;
+
               return (
                 <motion.div
                   key={area.title}
@@ -78,7 +81,7 @@ export default function FocusAreas() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group relative bg-white rounded-2xl p-6 flex flex-col border border-[#EDF1F5] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-10px_rgba(6,59,92,0.14)]"
+                  className="group relative bg-white rounded-2xl p-6 flex flex-col border border-[#E6E7F2] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-10px_rgba(62,64,149,0.18)]"
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
@@ -90,15 +93,17 @@ export default function FocusAreas() {
                       strokeWidth={2}
                     />
                   </div>
+
                   <h3
                     className="text-lg font-semibold mt-5 mb-2"
                     style={{
-                      color: "#17324D",
+                      color: "#3E4095",
                       fontFamily: "Poppins, sans-serif",
                     }}
                   >
                     {area.title}
                   </h3>
+
                   <p
                     className="text-sm leading-relaxed flex-1"
                     style={{
@@ -108,6 +113,7 @@ export default function FocusAreas() {
                   >
                     {area.description}
                   </p>
+
                   <a
                     href="/programs"
                     className="inline-flex items-center gap-1.5 text-sm font-medium mt-5 group/link"
@@ -117,6 +123,7 @@ export default function FocusAreas() {
                     }}
                   >
                     Learn More
+
                     <ArrowRight
                       size={15}
                       className="transition-transform duration-200 group-hover/link:translate-x-1"
@@ -139,26 +146,30 @@ export default function FocusAreas() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.32 }}
-            className="lg:col-span-2 relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-[0_20px_45px_-15px_rgba(3,45,70,0.35)]"
-            style={{ backgroundColor: "#032D46" }}
+            className="lg:col-span-2 relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-[0_20px_45px_-15px_rgba(62,64,149,0.35)]"
+            style={{ backgroundColor: "#3E4095" }}
           >
             <img
               src="/image50.png"
               alt="Children supported by Truebridge Empowerment Echo Foundation"
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             />
+
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(3,45,70,0.15) 0%, rgba(3,45,70,0.55) 55%, rgba(3,45,70,0.96) 100%)",
+                  "linear-gradient(180deg, rgba(62,64,149,0.15) 0%, rgba(62,64,149,0.55) 55%, rgba(62,64,149,0.96) 100%)",
               }}
             />
 
             {/* Caveat decorative phrase */}
             <p
               className="absolute top-6 right-6 text-right text-xl sm:text-2xl leading-tight"
-              style={{ color: "#FFF9F3", fontFamily: "Caveat, cursive" }}
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Caveat, cursive",
+              }}
             >
               “Healthier
               <br />
@@ -178,19 +189,24 @@ export default function FocusAreas() {
                 <br />
                 of the Change
               </h3>
+
               <p
                 className="text-sm leading-relaxed mb-6"
-                style={{ color: "#EAF8F7", fontFamily: "Inter, sans-serif" }}
+                style={{
+                  color: "#F7F7F7",
+                  fontFamily: "Inter, sans-serif",
+                }}
               >
                 Your support helps us organize health camps, awareness drives
                 and community programs. Together, we can build a healthier and
                 stronger society.
               </p>
+
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_10px_24px_-6px_rgba(255,107,74,0.5)]"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_10px_24px_-6px_rgba(255,102,52,0.5)]"
                 style={{
-                  backgroundColor: "#FF6B4A",
+                  backgroundColor: "#FF6634",
                   fontFamily: "Inter, sans-serif",
                 }}
               >
@@ -204,3 +220,4 @@ export default function FocusAreas() {
     </section>
   );
 }
+

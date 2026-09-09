@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Stethoscope, Users, Calendar, Heart } from "lucide-react";
@@ -50,37 +51,38 @@ function CountUp({ value, display, duration = 1200 }) {
 export default function OurImpact() {
   return (
     <section
-      className="relative overflow-hidden bg-[#032D46] bg-cover bg-center"
-      style={{ backgroundImage: `url(/impact_bg.jpg)` }}
+      className="relative overflow-hidden bg-[#3e4095] bg-cover bg-center"
+      // style={{ backgroundImage: `url(/impact_bg.jpg)` }}
     >
       {/* gradient scrim over the photo so stats/text stay readable */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(120deg, rgba(3,45,70,0.92) 0%, rgba(15,139,141,0.85) 100%)",
+            "linear-gradient(120deg, rgba(62,64,149,0.92) 0%, rgba(0,168,90,0.85) 100%)",
         }}
       />
 
       {/* Decorative glows for depth */}
       <span
         className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full opacity-20 blur-3xl"
-        style={{ background: "#7FE0DD" }}
+        style={{ background: "#00a85a" }}
         aria-hidden="true"
       />
       <span
         className="pointer-events-none absolute -bottom-20 right-10 w-72 h-72 rounded-full opacity-10 blur-3xl"
-        style={{ background: "#FF6B4A" }}
+        style={{ background: "#ff6634" }}
         aria-hidden="true"
       />
 
       <Container className="py-14 sm:py-16 relative">
         <div className="flex items-center gap-2">
-          <span className="w-6 h-px bg-[#FF6B4A]" />
+          <span className="w-6 h-px bg-[#ff6634]" />
           <p className="text-[12px] font-bold tracking-widest text-white/90">
             OUR IMPACT
           </p>
         </div>
+
         <h2 className="mt-3 font-display text-[22px] sm:text-[26px] font-semibold text-white max-w-md">
           The difference, in numbers
         </h2>
@@ -102,13 +104,17 @@ export default function OurImpact() {
                     <Icon
                       size={20}
                       strokeWidth={1.8}
-                      className="text-[#7FE0DD]"
+                      className="text-[#f7f7f7]"
                     />
                   </span>
+
                   <p className="mt-4 font-display font-bold text-[28px] sm:text-[32px] text-white leading-none tabular-nums">
                     <CountUp value={stat.value} display={stat.display} />
                   </p>
-                  <p className="mt-2 text-[13px] text-white/70">{stat.label}</p>
+
+                  <p className="mt-2 text-[13px] text-white/70">
+                    {stat.label}
+                  </p>
                 </motion.div>
               );
             })}
@@ -131,7 +137,7 @@ export default function OurImpact() {
               <span className="block">Healthier People</span>
               <span className="flex items-center gap-2">
                 Stronger Communities
-                <Heart size={16} className="text-[#FF6B4A] fill-[#FF6B4A]" />
+                <Heart size={16} className="text-[#ff6634] fill-[#ff6634]" />
               </span>
             </p>
           </motion.div>
@@ -140,3 +146,4 @@ export default function OurImpact() {
     </section>
   );
 }
+

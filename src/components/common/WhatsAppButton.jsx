@@ -1,11 +1,11 @@
-import { FaWhatsapp } from 'react-icons/fa'
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppButton() {
-  const phoneNumber = '919876543210'
+  const phoneNumber = "919205545850";
 
   const message = encodeURIComponent(
-    'Hello Truebridge Empowerment Echo Foundation, I would like to know more about your initiatives.'
-  )
+    "Hello Truebridge Empowerment Echo Foundation, I would like to know more about your initiatives.",
+  );
 
   return (
     <a
@@ -37,5 +37,5 @@ export default function WhatsAppButton() {
     >
       <FaWhatsapp className="text-[30px] sm:text-[34px]" />
     </a>
-  )
+  );
 }

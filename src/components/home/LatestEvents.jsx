@@ -74,7 +74,7 @@ export default function LatestEvents() {
                   aria-label={`Go to event ${i + 1}`}
                   onClick={() => scrollToIndex(i)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeIndex === i ? 'w-6 bg-[#0F8B8D]' : 'w-1.5 bg-[#0F8B8D]/25'
+                    activeIndex === i ? 'w-6 bg-[#00A85A]' : 'w-1.5 bg-[#00A85A]/25'
                   }`}
                 />
               ))}

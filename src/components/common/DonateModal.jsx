@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Heart, CheckCircle2, Loader2, User, Mail, Phone, MapPin } from 'lucide-react'
@@ -44,7 +45,7 @@ export default function DonateModal({ open, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.22 }}
-          className="fixed inset-0 z-[100] bg-[#032D46]/70 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-[#3e4095]/70 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={resetAndClose}
         >
           <motion.div
@@ -56,7 +57,7 @@ export default function DonateModal({ open, onClose }) {
             className="relative w-full max-w-[420px] bg-white rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* header */}
-            <div className="relative bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] px-6 pt-5 pb-6">
+            <div className="relative bg-gradient-to-br from-[#00a85a] to-[#3e4095] px-6 pt-5 pb-6">
               <button
                 onClick={resetAndClose}
                 aria-label="Close"
@@ -89,11 +90,11 @@ export default function DonateModal({ open, onClose }) {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
-                      className="w-14 h-14 rounded-full bg-[#EAF8F7] flex items-center justify-center"
+                      className="w-14 h-14 rounded-full bg-[#E6F6EF] flex items-center justify-center"
                     >
-                      <CheckCircle2 size={28} className="text-[#0F8B8D]" />
+                      <CheckCircle2 size={28} className="text-[#00a85a]" />
                     </motion.span>
-                    <h3 className="mt-4 font-display text-[19px] font-semibold text-[#063B5C]">
+                    <h3 className="mt-4 font-display text-[19px] font-semibold text-[#3e4095]">
                       Thank you, {form.name.split(' ')[0] || 'friend'}!
                     </h3>
                     <p className="mt-2 text-[13.5px] text-[#64748B] max-w-xs">
@@ -102,7 +103,7 @@ export default function DonateModal({ open, onClose }) {
                     </p>
                     <button
                       onClick={resetAndClose}
-                      className="mt-5 text-[14px] font-semibold text-[#FF6B4A] hover:underline"
+                      className="mt-5 text-[14px] font-semibold text-[#ff6634] hover:underline"
                     >
                       Close
                     </button>
@@ -124,7 +125,7 @@ export default function DonateModal({ open, onClose }) {
                         required
                         value={form.name}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
                         placeholder="Full name"
                       />
                     </div>
@@ -138,7 +139,7 @@ export default function DonateModal({ open, onClose }) {
                           required
                           value={form.email}
                           onChange={handleChange}
-                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
                           placeholder="Email"
                         />
                       </div>
@@ -149,7 +150,7 @@ export default function DonateModal({ open, onClose }) {
                           required
                           value={form.phone}
                           onChange={handleChange}
-                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all"
+                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
                           placeholder="Phone"
                         />
                       </div>
@@ -163,7 +164,7 @@ export default function DonateModal({ open, onClose }) {
                         rows={2}
                         value={form.address}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#063B5C] focus:border-[#0F8B8D] focus:ring-4 focus:ring-[#0F8B8D]/10 outline-none transition-all resize-none"
+                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all resize-none"
                         placeholder="Address"
                       />
                     </div>
@@ -171,7 +172,7 @@ export default function DonateModal({ open, onClose }) {
                     <button
                       type="submit"
                       disabled={status === 'sending'}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#FF6B4A] text-white text-[14.5px] font-semibold hover:brightness-105 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#ff6634] text-white text-[14.5px] font-semibold hover:brightness-105 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
                     >
                       {status === 'sending' ? (
                         <>

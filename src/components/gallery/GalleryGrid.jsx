@@ -43,9 +43,9 @@ const events = [
 ];
 
 const typeStyles = {
-  "Health Camp": { bg: "#FDE7E2", text: "#FF6B4A" },
+  "Health Camp": { bg: "#FDE7E2", text: "#FF6634" },
   Recognition: { bg: "#FCEFD6", text: "#C98A1F" },
-  "Civic Program": { bg: "#E1F2F1", text: "#0F8B8D" },
+  "Civic Program": { bg: "#E1F2F1", text: "#00A85A" },
 };
 
 // Flatten events into a single list of photos, each carrying its event context.
@@ -155,7 +155,7 @@ function Lightbox({ items, index, onClose, onNavigate, onJump }) {
                 onClick={() => onJump(i)}
                 className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden transition-all ${
                   i === index
-                    ? "ring-2 ring-[#0F8B8D] opacity-100"
+                    ? "ring-2 ring-[#00A85A] opacity-100"
                     : "opacity-50 hover:opacity-80"
                 }`}
               >
@@ -215,12 +215,12 @@ export default function Gallery() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="w-6 h-px bg-[#FF6B4A]" />
-            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#0F8B8D]">
+            <span className="w-6 h-px bg-[#FF6634]" />
+            <p className="text-[13px] font-semibold tracking-[0.14em] text-[#00A85A]">
               GALLERY
             </p>
           </div>
-          <h1 className="mt-4 font-display text-[30px] sm:text-[40px] leading-[1.15] font-semibold text-[#063B5C]">
+          <h1 className="mt-4 font-display text-[30px] sm:text-[40px] leading-[1.15] font-semibold text-[#3E4095]">
             Photos from the ground
           </h1>
           <p className="mt-3 text-[15px] sm:text-[16px] leading-relaxed text-[#64748B]">
@@ -235,8 +235,8 @@ export default function Gallery() {
               onClick={() => setActiveCategory(cat)}
               className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-[13.5px] font-semibold border transition-colors ${
                 activeCategory === cat
-                  ? "bg-[#063B5C] text-white border-[#063B5C]"
-                  : "bg-white text-[#64748B] border-[#EDF1F5] hover:border-[#0F8B8D]/40"
+                  ? "bg-[#3E4095] text-white border-[#3E4095]"
+                  : "bg-white text-[#64748B] border-[#EDF1F5] hover:border-[#00A85A]/40"
               }`}
             >
               {cat}
@@ -271,7 +271,7 @@ export default function Gallery() {
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.4, delay: (i % 8) * 0.04 }}
                   onClick={() => setOpenIndex(i)}
-                  className={`group relative block w-full mb-4 rounded-2xl overflow-hidden bg-[#EDF1F5] border border-[#EDF1F5] break-inside-avoid shadow-[0_1px_2px_rgba(6,59,92,0.04)] hover:shadow-[0_16px_32px_-10px_rgba(6,59,92,0.2)] transition-shadow duration-300 ${
+                  className={`group relative block w-full mb-4 rounded-2xl overflow-hidden bg-[#EDF1F5] border border-[#EDF1F5] break-inside-avoid shadow-[0_1px_2px_rgba(62,64,149,0.04)] hover:shadow-[0_16px_32px_-10px_rgba(62,64,149,0.2)] transition-shadow duration-300 ${
                     photo.tall ? "aspect-[3/4]" : "aspect-[4/3]"
                   }`}
                 >
@@ -295,7 +295,7 @@ export default function Gallery() {
                     </p>
                   </div>
                   <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ZoomIn size={14} className="text-[#063B5C]" />
+                    <ZoomIn size={14} className="text-[#3E4095]" />
                   </span>
                 </motion.button>
               );

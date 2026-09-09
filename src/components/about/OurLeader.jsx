@@ -1,9 +1,10 @@
+
 import { motion } from 'framer-motion'
 
 const team = [
-  { name: 'Mayank Bansal', role: 'President', initials: 'MB', accent: '#0F8B8D', accentBg: '#E1F2F1' },
-  { name: 'Neeraj Dubey', role: 'Director', initials: 'ND', accent: '#063B5C', accentBg: '#E7EDF1' },
-  { name: 'Arun Dubey', role: 'Team Member', initials: 'AD', accent: '#FF6B4A', accentBg: '#FDE7E2' },
+  { name: 'Mayank Bansal', role: 'President', initials: 'MB', accent: '#00a85a', accentBg: '#E8F7EF' },
+  { name: 'Neeraj Dubey', role: 'Director', initials: 'ND', accent: '#3e4095', accentBg: '#EEEEFA' },
+  { name: 'Arun Dubey', role: 'Team Member', initials: 'AD', accent: '#ff6634', accentBg: '#FFF0EB' },
 ]
 
 export default function OurLeadership() {
@@ -11,16 +12,17 @@ export default function OurLeadership() {
     <section className="relative overflow-hidden bg-[#FBFAF7]">
       {/* decorative leaves, bottom-left */}
       <svg
-        className="absolute -bottom-6 -left-8 w-40 h-40 text-[#EAF8F7] -z-0"
+        className="absolute -bottom-6 -left-8 w-40 h-40 text-[#E8F7EF] -z-0"
         viewBox="0 0 200 200"
         fill="currentColor"
       >
         <path d="M100 10 C 40 10, 10 60, 10 120 C 10 165, 45 195, 90 195 C 60 160, 55 100, 100 70 C 60 100, 65 150, 95 180 C 150 175, 190 130, 190 80 C 190 40, 150 10, 100 10 Z" />
       </svg>
+
       {/* decorative soft circle, top-right, for balance */}
       <span
         className="pointer-events-none absolute -top-14 right-0 w-56 h-56 rounded-full opacity-40 blur-3xl -z-0"
-        style={{ background: '#FDE7E2' }}
+        style={{ background: '#FFF0EB' }}
         aria-hidden="true"
       />
 
@@ -34,14 +36,16 @@ export default function OurLeadership() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center gap-2">
-              <span className="w-6 h-px bg-[#FF6B4A]" />
-              <p className="text-[13px] font-bold tracking-wide text-[#0F8B8D]">
+              <span className="w-6 h-px bg-[#ff6634]" />
+              <p className="text-[13px] font-bold tracking-wide text-[#00a85a]">
                 OUR LEADERSHIP
               </p>
             </div>
-            <h2 className="mt-4 font-display text-[28px] sm:text-[34px] font-bold leading-[1.15] text-[#063B5C]">
+
+            <h2 className="mt-4 font-display text-[28px] sm:text-[34px] font-bold leading-[1.15] text-[#3e4095]">
               Working Together for Greater Impact
             </h2>
+
             <p className="mt-5 text-[15px] leading-relaxed text-[#64748B] max-w-sm">
               Our dedicated team works with compassion, commitment and a shared vision
               to create a positive and lasting difference in society.
@@ -57,7 +61,7 @@ export default function OurLeadership() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="group relative bg-white rounded-2xl border border-[#EDF1F5] p-6 pt-7 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(6,59,92,0.14)]"
+                className="group relative bg-white rounded-2xl border border-[#E6E7F2] p-6 pt-7 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(62,64,149,0.14)]"
               >
                 {/* top accent bar, unique per member */}
                 <span
@@ -68,15 +72,17 @@ export default function OurLeadership() {
 
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center ring-4 ring-white shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
-                  style={{ background: `linear-gradient(135deg, ${member.accent} 0%, #063B5C 100%)` }}
+                  style={{ background: `linear-gradient(135deg, ${member.accent} 0%, #3e4095 100%)` }}
                 >
                   <span className="font-display font-bold text-[22px] text-white">
                     {member.initials}
                   </span>
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-[16px] text-[#063B5C]">
+
+                <h3 className="mt-4 font-display font-semibold text-[16px] text-[#3e4095]">
                   {member.name}
                 </h3>
+
                 <span
                   className="mt-2 px-3 py-1 rounded-md text-[12px] font-semibold"
                   style={{ backgroundColor: member.accentBg, color: member.accent }}
@@ -91,3 +97,4 @@ export default function OurLeadership() {
     </section>
   )
 }
+

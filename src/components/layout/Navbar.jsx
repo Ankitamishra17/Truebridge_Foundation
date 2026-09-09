@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {
@@ -57,7 +58,7 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(6,59,92,0.08)]"
+          ? "bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(62,64,149,0.08)]"
           : "bg-white border-b border-[#EDF1F5]"
       }`}
     >
@@ -68,35 +69,19 @@ export default function Navbar() {
       >
         <NavLink
           to="/"
-          className="group flex items-center gap-2.5 flex-shrink-0 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
+          className="group flex items-center gap-2.5 flex-shrink-0 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00a85a]/40"
           onClick={() => setOpen(false)}
         >
-          <motion.span
+          <motion.img
+            src="/logo.jpeg"
+            alt="Truebridge Empowerment Echo Foundation"
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className={`relative rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 ${
-              scrolled ? "w-9 h-9" : "w-10 h-10"
-            }`}
-          >
-            <span className="absolute inset-0 rounded-full bg-[#0F8B8D]/30 scale-100 group-hover:scale-150 group-hover:opacity-0 opacity-60 transition-all duration-500" />
-            <HeartHandshake
-              size={scrolled ? 17 : 19}
-              className="relative text-white transition-all duration-300"
-            />
-          </motion.span>
-          <span className="leading-tight">
-            <span className="block font-display font-semibold text-[18px] text-[#063B5C]">
-              Truebridge
-            </span>
-            <span
-              className={`block text-[11px] tracking-wide text-[#64748B] overflow-hidden transition-all duration-300 ${
-                scrolled ? "max-h-0 opacity-0" : "max-h-4 opacity-100"
-              }`}
-            >
-              Empowerment Echo Foundation
-            </span>
-          </span>
+            className={`object-contain flex-shrink-0 transition-all duration-300 ${
+              scrolled ? "w-14 h-14 lg:scale-125" : "w-16 h-16 lg:scale-[1.35]"
+            } group-hover:scale-[1.4] group-hover:rotate-2`}
+          />
         </NavLink>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -106,10 +91,10 @@ export default function Navbar() {
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `relative px-4 py-2 text-[15px] font-medium font-body transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 rounded-md ${
+                `relative px-4 py-2 text-[15px] font-medium font-body transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#00a85a]/40 rounded-md ${
                   isActive
-                    ? "text-[#063B5C]"
-                    : "text-[#17324D]/75 hover:text-[#063B5C]"
+                    ? "text-[#3e4095]"
+                    : "text-[#3e4095]/75 hover:text-[#3e4095]"
                 }`
               }
             >
@@ -124,7 +109,7 @@ export default function Navbar() {
                         stiffness: 380,
                         damping: 30,
                       }}
-                      className="absolute left-4 right-4 -bottom-0.5 h-[2px] bg-[#FF6B4A] rounded-full"
+                      className="absolute left-4 right-4 -bottom-0.5 h-[2px] bg-[#ff6634] rounded-full"
                     />
                   )}
                 </>
@@ -135,14 +120,14 @@ export default function Navbar() {
 
         <button
           onClick={openDonate}
-          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold transition-all duration-200 hover:brightness-105 hover:shadow-[0_10px_24px_-6px_rgba(255,107,74,0.5)] hover:-translate-y-0.5 outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40 flex-shrink-0"
+          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-[#ff6634] text-white text-[15px] font-semibold transition-all duration-200 hover:brightness-105 hover:shadow-[0_10px_24px_-6px_rgba(255,102,52,0.5)] hover:-translate-y-0.5 outline-none focus-visible:ring-2 focus-visible:ring-[#ff6634]/40 flex-shrink-0"
         >
           <Heart size={15} className="fill-white" />
           Donate Now
         </button>
 
         <button
-          className="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#063B5C] rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
+          className="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#3e4095] rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#00a85a]/40"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -165,7 +150,7 @@ export default function Navbar() {
       {/* scroll progress hairline */}
       <div className="h-[2px] w-full bg-transparent">
         <motion.div
-          className="h-full bg-gradient-to-r from-[#0F8B8D] to-[#FF6B4A]"
+          className="h-full bg-gradient-to-r from-[#00a85a] to-[#ff6634]"
           style={{ width: `${progress * 100}%` }}
           transition={{ duration: 0.1 }}
         />
@@ -184,7 +169,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 bg-[#032D46]/40 backdrop-blur-[2px] z-[90]"
+              className="lg:hidden fixed inset-0 bg-[#3e4095]/40 backdrop-blur-[2px] z-[90]"
             />
             <motion.nav
               initial={{ x: "100%" }}
@@ -194,18 +179,25 @@ export default function Navbar() {
               className="lg:hidden fixed inset-y-0 right-0 z-[100] w-[85vw] max-w-xs bg-white shadow-2xl flex flex-col"
             >
               <div className="flex items-center justify-between px-5 h-[64px] border-b border-[#EDF1F5] flex-shrink-0">
+            
                 <span className="flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0F8B8D] to-[#063B5C] flex items-center justify-center">
-                    <HeartHandshake size={15} className="text-white" />
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00a85a] to-[#3e4095] flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/logo.jpeg"
+                      alt="Truebridge"
+                      className="w-full h-full object-contain"
+                    />
                   </span>
-                  <span className="font-display font-semibold text-[16px] text-[#063B5C]">
+
+                  <span className="font-display font-semibold text-[16px] text-[#3e4095]">
                     Truebridge
                   </span>
                 </span>
+                
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="w-9 h-9 flex items-center justify-center text-[#063B5C] rounded-full hover:bg-[#FAFAF8] outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40"
+                  className="w-9 h-9 flex items-center justify-center text-[#3e4095] rounded-full hover:bg-[#FAFAF8] outline-none focus-visible:ring-2 focus-visible:ring-[#00a85a]/40"
                 >
                   <X size={20} />
                 </button>
@@ -224,16 +216,16 @@ export default function Navbar() {
                       end={l.to === "/"}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-3 rounded-xl text-[16px] font-medium font-body transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#0F8B8D]/40 ${
+                        `flex items-center gap-3 px-3 py-3 rounded-xl text-[16px] font-medium font-body transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#00a85a]/40 ${
                           isActive
-                            ? "bg-[#EAF8F7] text-[#063B5C]"
-                            : "text-[#17324D]/80 hover:bg-[#FAFAF8]"
+                            ? "bg-[#EAF8F7] text-[#3e4095]"
+                            : "text-[#3e4095]/80 hover:bg-[#FAFAF8]"
                         }`
                       }
                     >
                       <l.icon
                         size={18}
-                        className="text-[#0F8B8D] flex-shrink-0"
+                        className="text-[#00a85a] flex-shrink-0"
                       />
                       {l.label}
                     </NavLink>
@@ -252,7 +244,7 @@ export default function Navbar() {
               >
                 <button
                   onClick={openDonate}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#FF6B4A] text-white text-[15px] font-semibold hover:brightness-105 transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A]/40"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff6634] text-white text-[15px] font-semibold hover:brightness-105 transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#ff6634]/40"
                 >
                   <Heart size={15} className="fill-white" />
                   Donate Now
@@ -267,3 +259,4 @@ export default function Navbar() {
     </header>
   );
 }
+

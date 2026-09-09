@@ -14,7 +14,7 @@ export default function VideoCard({ video, index, onPlay }) {
       whileHover="hover"
       className="text-left group h-full w-full flex flex-col"
     >
-      <div className="relative w-full rounded-2xl overflow-hidden aspect-video bg-[#063B5C] flex-shrink-0">
+      <div className="relative w-full rounded-2xl overflow-hidden aspect-video bg-[#3E4095] flex-shrink-0">
         <motion.div
           variants={{ hover: { scale: 1.06 } }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -28,7 +28,7 @@ export default function VideoCard({ video, index, onPlay }) {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#032D46]/70 via-[#032D46]/10 to-transparent group-hover:from-[#032D46]/80 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3E4095]/70 via-[#3E4095]/10 to-transparent group-hover:from-[#3E4095]/80 transition-colors duration-300" />
 
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.span
@@ -42,7 +42,7 @@ export default function VideoCard({ video, index, onPlay }) {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="absolute inset-0 rounded-full bg-white"
             />
-            <Play size={20} className="relative text-[#FF6B4A] ml-0.5" fill="#FF6B4A" />
+            <Play size={20} className="relative text-[#FF6634] ml-0.5" fill="#FF6634" />
           </motion.span>
         </div>
 
@@ -52,8 +52,8 @@ export default function VideoCard({ video, index, onPlay }) {
       </div>
 
       <div className="mt-3 flex-1 flex flex-col">
-        <p className="text-[13px] font-semibold text-[#0F8B8D]">{video.category}</p>
-        <h3 className="font-display font-semibold text-[16px] text-[#063B5C] mt-0.5 line-clamp-2 group-hover:text-[#0F8B8D] transition-colors">
+        <p className="text-[13px] font-semibold text-[#00A85A]">{video.category}</p>
+        <h3 className="font-display font-semibold text-[16px] text-[#3E4095] mt-0.5 line-clamp-2 group-hover:text-[#00A85A] transition-colors">
           {video.title}
         </h3>
       </div>

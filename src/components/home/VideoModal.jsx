@@ -22,7 +22,7 @@ export default function VideoModal({ video, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[100] bg-[#032D46]/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-[100] bg-[#3E4095]/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
           onClick={onClose}
         >
           <motion.div
@@ -52,7 +52,7 @@ export default function VideoModal({ video, onClose }) {
               className="flex items-start justify-between gap-4 mt-4"
             >
               <div>
-                <p className="text-[12px] font-semibold text-[#0F8B8D] uppercase tracking-wide">
+                <p className="text-[12px] font-semibold text-[#00A85A] uppercase tracking-wide">
                   {video.category}
                 </p>
                 <h3 className="font-display font-semibold text-[17px] sm:text-[19px] text-white mt-1">

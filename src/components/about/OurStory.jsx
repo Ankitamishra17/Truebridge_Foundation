@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
-import Container from '../common/Container.jsx'
-import PrimaryButton from '../common/PrimaryButton.jsx'
-import ImageWithFallback from '../common/ImageWithFallback.jsx'
+import { motion } from "framer-motion";
+import Container from "../common/Container.jsx";
+import PrimaryButton from "../common/PrimaryButton.jsx";
+import ImageWithFallback from "../common/ImageWithFallback.jsx";
 
 export default function OurStory() {
   return (
@@ -26,27 +26,29 @@ export default function OurStory() {
             </h2>
 
             <p className="mt-6 text-[15px] leading-relaxed text-[#475569]">
-              Truebridge Empowerment Echo Foundation was founded in Shahdara, Delhi NCR,
-              on a simple belief — that small efforts, when combined, can create a big
-              impact. Under the leadership of directors Neeraj Dubey and Arun Dubey, what
-              started as a small circle of like-minded neighbours has grown into a
-              dedicated community working for healthcare, education and social welfare.
+              Truebridge Empowerment Echo Foundation was founded in Shahdara,
+              Delhi NCR, on a simple belief — that small efforts, when combined,
+              can create a big impact. Under the leadership of directors Neeraj
+              Dubey and Arun Dubey, what started as a small circle of
+              like-minded neighbours has grown into a dedicated community
+              working for healthcare, education and social welfare.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-[#475569]">
-              Over the years, we have organised free health camps offering eye, sugar,
-              BP and dental check-ups, run blood donation drives, and been recognised
-              alongside RWAs and community leaders for our civic and welfare work —
-              reaching thousands of lives and creating meaningful change, one
-              neighbourhood at a time.
+              Over the years, we have organised free health camps offering eye,
+              sugar, BP and dental check-ups, run blood donation drives, and
+              been recognised alongside RWAs and community leaders for our civic
+              and welfare work — reaching thousands of lives and creating
+              meaningful change, one neighbourhood at a time.
             </p>
 
             <div className="mt-8 flex items-center gap-5">
-             
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className="font-display text-[14px] font-semibold text-[#063B5C]">
                   Neeraj & Arun Dubey
                 </span>
-                <span className="text-[12.5px] text-[#64748B]">Founders, Truebridge</span>
+                <span className="text-[12.5px] text-[#64748B]">
+                  Founders, Truebridge
+                </span>
               </div>
             </div>
           </motion.div>
@@ -62,7 +64,7 @@ export default function OurStory() {
             {/* Decorative glow behind the collage */}
             <span
               className="pointer-events-none absolute -top-8 -right-8 w-56 h-56 rounded-full opacity-30 blur-3xl"
-              style={{ background: '#0F8B8D' }}
+              style={{ background: "#0F8B8D" }}
               aria-hidden="true"
             />
 
@@ -105,5 +107,5 @@ export default function OurStory() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

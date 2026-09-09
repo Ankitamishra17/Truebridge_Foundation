@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion'
 import { HeartPulse, Users, CalendarDays, ShieldCheck } from 'lucide-react'
 import Container from '../common/Container.jsx'
@@ -23,14 +24,18 @@ export default function ImpactStats() {
               transition={{ duration: 0.4, delay: i * 0.06 }}
               className="flex items-center gap-3"
             >
-              <span className="w-11 h-11 rounded-xl bg-[#EAF8F7] flex items-center justify-center flex-shrink-0">
-                <s.icon size={20} className="text-[#0F8B8D]" />
+              <span className="w-11 h-11 rounded-xl bg-[#E8F7EF] flex items-center justify-center flex-shrink-0">
+                <s.icon size={20} className="text-[#00A85A]" />
               </span>
+
               <div>
-                <p className="font-display font-bold text-[22px] sm:text-[26px] text-[#063B5C] leading-none">
+                <p className="font-display font-bold text-[22px] sm:text-[26px] text-[#3E4095] leading-none">
                   {s.value}
                 </p>
-                <p className="mt-1 text-[13px] text-[#64748B]">{s.label}</p>
+
+                <p className="mt-1 text-[13px] text-[#64748B]">
+                  {s.label}
+                </p>
               </div>
             </motion.div>
           ))}
