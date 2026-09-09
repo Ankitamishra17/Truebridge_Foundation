@@ -107,6 +107,9 @@ export default function Footer() {
               <li key={l.to}>
                 <Link
                   to={l.to}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+                  }
                   className="inline-flex items-center gap-1.5 text-white/75 hover:text-[#6EE7B7] transition-colors group"
                 >
                   <span className="w-1 h-1 rounded-full bg-[#00A85A] group-hover:bg-[#6EE7B7] transition-colors" />

@@ -320,7 +320,7 @@ export default function Programs() {
               <div
                 key={p.title}
                 ref={(el) => (cardRefs.current[i] = el)}
-                className="group relative bg-white rounded-2xl border border-[#E6E7F2] p-6 sm:p-7 flex flex-col overflow-hidden shadow-[0_1px_2px_rgba(62,64,149,0.04)] hover:shadow-[0_12px_28px_-8px_rgba(62,64,149,0.18)] hover:-translate-y-1 hover:border-transparent transition-all duration-300 w-[82%] sm:w-[46%] lg:w-[27%] flex-shrink-0 snap-start"
+                className="group relative bg-white rounded-2xl border border-[#E6E7F2] p-6 sm:p-7 flex flex-col overflow-hidden   hover:-translate-y-1 hover:border-transparent transition-all duration-300 w-[82%] sm:w-[46%] lg:w-[27%] flex-shrink-0 snap-start"
               >
                 <span
                   className="pointer-events-none absolute -top-10 -right-10 w-28 h-28 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"
