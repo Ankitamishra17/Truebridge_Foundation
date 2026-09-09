@@ -36,7 +36,7 @@ export default function Footer() {
   const [donateOpen, setDonateOpen] = useState(false);
 
   return (
-    <footer className="relative bg-[#3E4095] text-white overflow-hidden">
+    <footer id="footer" className="relative bg-[#3E4095] text-white overflow-hidden">
       {/* top accent line */}
       <div className="h-[3px] w-full bg-gradient-to-r from-[#00A85A] via-[#00A85A] to-[#FF6634]" />
 
