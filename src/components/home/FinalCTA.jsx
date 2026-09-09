@@ -3,7 +3,7 @@ import PrimaryButton from "../common/PrimaryButton.jsx";
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-[#063B5C] min-h-[340px] xs:min-h-[380px] sm:min-h-[420px] md:min-h-[460px] flex items-center -mb-20">
+    <section className="relative overflow-hidden bg-[#063B5C] min-h-[340px] xs:min-h-[380px] sm:min-h-[420px] md:min-h-[460px] flex items-center ">
 
       {/* Background Image — Mobile */}
       <div

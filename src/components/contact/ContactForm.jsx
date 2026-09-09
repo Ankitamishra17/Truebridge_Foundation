@@ -83,7 +83,7 @@ export default function Contact() {
         </Container>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14">
         {/* Contact info */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}

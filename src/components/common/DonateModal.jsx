@@ -172,7 +172,7 @@ export default function DonateModal({ open, onClose }) {
                     <button
                       type="submit"
                       disabled={status === 'sending'}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#ff6634] text-white text-[14.5px] font-semibold hover:brightness-105 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff6634] text-white text-[14.5px] font-semibold hover:brightness-105 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
                     >
                       {status === 'sending' ? (
                         <>
