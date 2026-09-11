@@ -1,11 +1,10 @@
-
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   HeartPulse,
   GraduationCap,
   HandHeart,
-  Leaf,
+  UsersRound,
   ArrowRight,
 } from "lucide-react";
 
@@ -13,7 +12,8 @@ const focusAreas = [
   {
     icon: HeartPulse,
     title: "Healthcare",
-    description: "Medical camps, health checkups and awareness programs.",
+    description:
+      "Free health check-ups and medical assistance for local communities.",
     iconBg: "#E8F7EF",
     iconColor: "#00A85A",
     linkColor: "#00A85A",
@@ -34,14 +34,14 @@ const focusAreas = [
     iconColor: "#3E4095",
     linkColor: "#3E4095",
   },
-  // {
-  //   icon: Leaf,
-  //   title: "Environment",
-  //   description: "Awareness and initiatives for a cleaner, healthier tomorrow.",
-  //   iconBg: "#EFFAF0",
-  //   iconColor: "#00A85A",
-  //   linkColor: "#00A85A",
-  // },
+  {
+    icon: UsersRound,
+    title: "Women Empowerment",
+    description: "Supporting women with awareness, guidance and opportunities.",
+    iconBg: "#FFF0EB",
+    iconColor: "#FF6634",
+    linkColor: "#FF6634",
+  },
 ];
 
 export default function FocusAreas() {
@@ -52,7 +52,10 @@ export default function FocusAreas() {
         <div className="text-center mb-12">
           <h2
             className="text-3xl sm:text-4xl font-bold"
-            style={{ color: "#3E4095", fontFamily: "Poppins, sans-serif" }}
+            style={{
+              color: "#3E4095",
+              fontFamily: "Poppins, sans-serif",
+            }}
           >
             Our Focus Areas
           </h2>
@@ -62,15 +65,19 @@ export default function FocusAreas() {
 
           <p
             className="mt-2 text-base sm:text-lg"
-            style={{ color: "#3E4095", fontFamily: "Inter, sans-serif" }}
+            style={{
+              color: "#3E4095",
+              fontFamily: "Inter, sans-serif",
+            }}
           >
             Working together for healthier and stronger communities
           </p>
         </div>
 
+        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Focus area cards */}
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          {/* Focus Area Cards */}
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-5">
             {focusAreas.map((area, i) => {
               const Icon = area.icon;
 
@@ -80,22 +87,60 @@ export default function FocusAreas() {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group relative bg-white rounded-2xl p-6 flex flex-col border border-[#E6E7F2] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-10px_rgba(62,64,149,0.18)]"
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.08,
+                  }}
+                  className="
+                    group
+                    relative
+                    bg-white
+                    rounded-2xl
+                    p-6
+                    flex
+                    flex-col
+                    border
+                    border-[#E6E7F2]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:shadow-[0_16px_32px_-10px_rgba(62,64,149,0.18)]
+                  "
                 >
+                  {/* Icon */}
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-                    style={{ backgroundColor: area.iconBg }}
+                    className="
+                      w-12
+                      h-12
+                      rounded-xl
+                      flex
+                      items-center
+                      justify-center
+                      transition-transform
+                      duration-300
+                      group-hover:scale-105
+                    "
+                    style={{
+                      backgroundColor: area.iconBg,
+                    }}
                   >
                     <Icon
                       size={22}
-                      style={{ color: area.iconColor }}
+                      style={{
+                        color: area.iconColor,
+                      }}
                       strokeWidth={2}
                     />
                   </div>
 
+                  {/* Title */}
                   <h3
-                    className="text-lg font-semibold mt-5 mb-2"
+                    className="
+                      text-lg
+                      font-semibold
+                      mt-5
+                      mb-2
+                    "
                     style={{
                       color: "#3E4095",
                       fontFamily: "Poppins, sans-serif",
@@ -104,8 +149,13 @@ export default function FocusAreas() {
                     {area.title}
                   </h3>
 
+                  {/* Description */}
                   <p
-                    className="text-sm leading-relaxed flex-1"
+                    className="
+                      text-sm
+                      leading-relaxed
+                      flex-1
+                    "
                     style={{
                       color: "#64748B",
                       fontFamily: "Inter, sans-serif",
@@ -114,47 +164,105 @@ export default function FocusAreas() {
                     {area.description}
                   </p>
 
+                  {/* Learn More */}
                   <a
                     href="/programs"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium mt-5 group/link"
+                    className="
+                      inline-flex
+                      items-center
+                      gap-1.5
+                      text-sm
+                      font-medium
+                      mt-5
+                      group/link
+                    "
                     style={{
                       color: area.linkColor,
                       fontFamily: "Inter, sans-serif",
                     }}
                   >
                     Learn More
-
                     <ArrowRight
                       size={15}
-                      className="transition-transform duration-200 group-hover/link:translate-x-1"
+                      className="
+                        transition-transform
+                        duration-200
+                        group-hover/link:translate-x-1
+                      "
                     />
                   </a>
 
-                  {/* accent underline, revealed on hover */}
+                  {/* Bottom Accent */}
                   <span
-                    className="absolute left-6 right-6 bottom-0 h-[2.5px] rounded-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
-                    style={{ backgroundColor: area.linkColor }}
+                    className="
+                      absolute
+                      left-6
+                      right-6
+                      bottom-0
+                      h-[2.5px]
+                      rounded-full
+                      origin-left
+                      scale-x-0
+                      transition-transform
+                      duration-300
+                      group-hover:scale-x-100
+                    "
+                    style={{
+                      backgroundColor: area.linkColor,
+                    }}
                   />
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Donate CTA panel */}
+          {/* Donate CTA Panel */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.32 }}
-            className="lg:col-span-2 relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-[0_20px_45px_-15px_rgba(62,64,149,0.35)]"
-            style={{ backgroundColor: "#3E4095" }}
+            initial={{
+              opacity: 0,
+              y: 24,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.32,
+            }}
+            className="
+              lg:col-span-2
+              relative
+              rounded-2xl
+              overflow-hidden
+              min-h-[380px]
+              flex
+              flex-col
+              justify-end
+              shadow-[0_20px_45px_-15px_rgba(62,64,149,0.35)]
+            "
+            style={{
+              backgroundColor: "#3E4095",
+            }}
           >
+            {/* Background Image */}
             <img
               src="/image50.png"
               alt="Children supported by Truebridge Empowerment Echo Foundation"
-              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              className="
+                absolute
+                inset-0
+                w-full
+                h-full
+                object-cover
+                opacity-70
+              "
             />
 
+            {/* Gradient Overlay */}
             <div
               className="absolute inset-0"
               style={{
@@ -163,9 +271,17 @@ export default function FocusAreas() {
               }}
             />
 
-            {/* Caveat decorative phrase */}
+            {/* Decorative Phrase */}
             <p
-              className="absolute top-6 right-6 text-right text-xl sm:text-2xl leading-tight"
+              className="
+                absolute
+                top-6
+                right-6
+                text-right
+                text-xl
+                sm:text-2xl
+                leading-tight
+              "
               style={{
                 color: "#FFFFFF",
                 fontFamily: "Caveat, cursive",
@@ -180,10 +296,19 @@ export default function FocusAreas() {
               Communities
             </p>
 
+            {/* CTA Content */}
             <div className="relative z-10 p-6 sm:p-8">
               <h3
-                className="text-2xl sm:text-3xl font-bold mb-3 text-white"
-                style={{ fontFamily: "Poppins, sans-serif" }}
+                className="
+                  text-2xl
+                  sm:text-3xl
+                  font-bold
+                  mb-3
+                  text-white
+                "
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                }}
               >
                 Be a Part
                 <br />
@@ -191,7 +316,11 @@ export default function FocusAreas() {
               </h3>
 
               <p
-                className="text-sm leading-relaxed mb-6"
+                className="
+                  text-sm
+                  leading-relaxed
+                  mb-6
+                "
                 style={{
                   color: "#F7F7F7",
                   fontFamily: "Inter, sans-serif",
@@ -202,9 +331,24 @@ export default function FocusAreas() {
                 stronger society.
               </p>
 
+              {/* Donate Button */}
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_10px_24px_-6px_rgba(255,102,52,0.5)]"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-5
+                  py-3
+                  rounded-md
+                  text-sm
+                  font-semibold
+                  text-white
+                  transition-all
+                  duration-200
+                  hover:scale-[1.03]
+                  hover:shadow-[0_10px_24px_-6px_rgba(255,102,52,0.5)]
+                "
                 style={{
                   backgroundColor: "#FF6634",
                   fontFamily: "Inter, sans-serif",
@@ -220,4 +364,3 @@ export default function FocusAreas() {
     </section>
   );
 }
-

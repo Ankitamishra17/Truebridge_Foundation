@@ -36,8 +36,8 @@ export default function PresidentMessage() {
 
             <div className="relative rounded-[28px] overflow-hidden aspect-[4/5] ring-4 ring-white shadow-[0_20px_45px_-15px_rgba(62,64,149,0.25)]">
               <ImageWithFallback
-                src="/mayank.jpeg"
-                alt="Mayank Bansal, President of Truebridge Empowerment Echo Foundation"
+                src="/Neeraj_dubey.jpeg"
+                alt="Neeraj Dubey, Director of Truebridge Empowerment Echo Foundation"
                 className="w-full h-full"
 
                 rounded="rounded-none"
@@ -49,9 +49,9 @@ export default function PresidentMessage() {
               <span className="w-2 h-2 rounded-md bg-[#ff6634] flex-shrink-0" />
               <div>
                 <p className="font-display font-semibold text-[15px] text-[#3e4095] leading-none">
-                  Mayank Bansal
+                  Neeraj Dubey
                 </p>
-                <p className="mt-1 text-[13px] text-[#64748B] leading-none">President</p>
+                <p className="mt-1 text-[13px] text-[#64748B] leading-none">Director</p>
               </div>
             </div>
           </motion.div>
@@ -67,7 +67,7 @@ export default function PresidentMessage() {
             <div className="flex items-center gap-2">
               <span className="w-6 h-px bg-[#ff6634]" />
               <p className="text-[13px] font-bold tracking-wide text-[#00a85a]">
-                PRESIDENT&apos;S MESSAGE
+                DIRECTOR&apos;S MESSAGE
               </p>
             </div>
 
@@ -108,7 +108,7 @@ export default function PresidentMessage() {
                 className="text-[26px] text-[#00a85a]"
                 style={{ fontFamily: 'Caveat, cursive' }}
               >
-                Mayank Bansal
+                Neeraj Dubey
               </p>
             </div>
           </motion.div>
