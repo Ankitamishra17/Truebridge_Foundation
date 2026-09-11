@@ -86,7 +86,8 @@ export default function workHero() {
               Four kinds of work,
               <br />
               one purpose — a healthier{" "}
-              <span className="text-[#00A85A]">neighbourhood.</span>
+              <span className="text-[#00A85A]  max-w-md
+                sm:max-w-xl">neighbourhood.</span>
             </h1>
 
             {/* Description */}
