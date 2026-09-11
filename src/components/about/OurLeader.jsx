@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Neeraj Dubey",
+    name: "Arun Dubey",
     role: "Director",
-    image: "/Neeraj_dubey.jpeg",
-    accent: "#3e4095",
-    accentBg: "#EEEEFA",
+    image: "/Arun_dubey.jpeg",
+    accent: "#ff6634",
+    accentBg: "#FFF0EB",
   },
   {
     name: "Mayank Bansal",
@@ -16,225 +16,145 @@ const team = [
     accentBg: "#E8F7EF",
   },
   {
-    name: "Arun Dubey",
-    role: "Director",
-    image: "/Arun_dubey.jpeg",
-    accent: "#ff6634",
-    accentBg: "#FFF0EB",
-  },
-  
-  {
     name: "Basant Verma",
     role: "Executive Member",
     image: "/Basant.jpeg",
     accent: "#3e4095",
     accentBg: "#EEEEFA",
   },
+  {
+    name: "Neelam Bansal",
+    role: "Executive Member",
+    image: "/Neelam_Bansal.png",
+    accent: "#00a85a",
+    accentBg: "#E8F7EF",
+  },
+  {
+    name: "Sushma Dubey",
+    role: "Treasurer",
+    image: "/Sushma_dubey.png",
+    accent: "#ff6634",
+    accentBg: "#FFF0EB",
+  },
 ];
 
 export default function OurLeadership() {
   return (
-    <section className="relative overflow-hidden bg-[#FBFAF7]">
-      {/* Decorative leaves - bottom left */}
-      <svg
-        className="absolute -bottom-6 -left-8 w-40 h-40 text-[#E8F7EF] z-0"
-        viewBox="0 0 200 200"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path d="M100 10 C 40 10, 10 60, 10 120 C 10 165, 45 195, 90 195 C 60 160, 55 100, 100 70 C 60 100, 65 150, 95 180 C 150 175, 190 130, 190 80 C 190 40, 150 10, 100 10 Z" />
-      </svg>
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#3e4095]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#00a85a]/5 blur-3xl" />
 
-      {/* Decorative soft circle - top right */}
-      <span
-        className="pointer-events-none absolute -top-14 right-0 w-56 h-56 rounded-full opacity-40 blur-3xl z-0"
-        style={{ background: "#FFF0EB" }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
-        <div
-          className="
-            grid
-            grid-cols-1
-            lg:grid-cols-[300px_minmax(0,1fr)]
-            gap-10
-            lg:gap-12
-            items-center
-          "
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 text-center"
         >
-          {/* =========================
-              LEFT TEXT
-          ========================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Section Label */}
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-px bg-[#ff6634]" />
+          <span className="mb-3 inline-block rounded-md bg-[#3e4095]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#3e4095]">
+            Our Leadership
+          </span>
 
-              <p className="text-[13px] font-bold tracking-wide text-[#00a85a]">
-                OUR LEADERSHIP
-              </p>
+          <h2 className="font-heading text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            Meet the People Behind{" "}
+            <span className="text-[#3e4095]">Truebridge</span>
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base">
+            Our dedicated team works together to strengthen communities, promote
+            healthcare and empower people through meaningful social initiatives.
+          </p>
+        </motion.div>
+
+        {/* Leadership Layout */}
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+          {/* Left Intro */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3e4095]/10 lg:mx-0">
+              <div className="h-7 w-7 rounded-full bg-[#3e4095]" />
             </div>
 
-            {/* Heading */}
-            <h2
-              className="
-                mt-4
-                font-display
-                text-[28px]
-                sm:text-[34px]
-                font-bold
-                leading-[1.15]
-                text-[#3e4095]
-              "
-            >
-              Working Together for Greater Impact
-            </h2>
+            <h3 className="font-heading text-2xl font-bold text-gray-900">
+              Strong Leadership
+            </h3>
 
-            {/* Description */}
-            <p
-              className="
-                mt-5
-                text-[15px]
-                leading-relaxed
-                text-[#64748B]
-                max-w-sm
-              "
-            >
-              Our dedicated team works with compassion, commitment and a shared
-              vision to create a positive and lasting difference in society.
+            <p className="mt-3 text-sm leading-6 text-gray-600">
+              Guided by commitment, compassion and a vision for a healthier and
+              empowered society.
             </p>
           </motion.div>
 
-          {/* =========================
-              TEAM CARDS
-          ========================== */}
-          <div
-            className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              lg:grid-cols-4
-              gap-5
-              w-full
-            "
-          >
-            {team.map((member, i) => (
+          {/* Team Cards */}
+          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.45,
-                  delay: i * 0.1,
+                  duration: 0.5,
+                  delay: index * 0.08,
                 }}
-                className="
-                  group
-                  relative
-                  bg-white
-                  rounded-2xl
-                  border
-                  border-[#E6E7F2]
-                  px-4
-                  py-6
-                  pt-7
-                  flex
-                  flex-col
-                  items-center
-                  text-center
-                  overflow-hidden
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:shadow-[0_16px_32px_-8px_rgba(62,64,149,0.14)]
-                "
+                whileHover={{ y: -7 }}
+                className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
               >
-                {/* =========================
-                    TOP ACCENT BAR
-                ========================== */}
-                <span
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{
-                    backgroundColor: member.accent,
-                  }}
-                  aria-hidden="true"
+                {/* Top Accent */}
+                <div
+                  className="h-1.5 w-full"
+                  style={{ backgroundColor: member.accent }}
                 />
 
-                {/* =========================
-                    PROFILE PHOTO
-                ========================== */}
-                <div
-                  className="
-                    relative
-                    w-20
-                    h-20
-                    rounded-full
-                    overflow-hidden
-                    ring-4
-                    ring-white
-                    shadow-md
-                    transition-all
-                    duration-300
-                    group-hover:scale-105
-                    group-hover:-rotate-3
-                    bg-[#EEEEFA]
-                  "
-                >
-                  <img
-                    src={member.image}
-                    alt={`${member.name} - ${member.role}`}
-                    className="
-                      w-full
-                      h-full
-                      object-cover
-                      object-center
-                    "
-                    loading="lazy"
-                  />
+                {/* Image */}
+                <div className="relative flex justify-center px-3 pt-5">
+                  <div
+                    className="relative h-28 w-28 overflow-hidden rounded-full border-4 bg-white shadow-md transition-transform duration-300 group-hover:scale-105"
+                    style={{
+                      borderColor: member.accentBg,
+                    }}
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  </div>
                 </div>
 
-                {/* =========================
-                    MEMBER NAME
-                ========================== */}
-                <h3
-                  className="
-                    mt-4
-                    font-display
-                    font-semibold
-                    text-[16px]
-                    leading-tight
-                    text-[#3e4095]
-                  "
-                >
-                  {member.name}
-                </h3>
+                {/* Content */}
+                <div className="px-3 pb-5 pt-4 text-center">
+                  <h4 className="font-heading text-base font-bold leading-tight text-gray-900">
+                    {member.name}
+                  </h4>
 
-                {/* =========================
-                    MEMBER ROLE
-                ========================== */}
-                <span
-                  className="
-                    mt-2
-                    px-3
-                    py-1
-                    rounded-md
-                    text-[12px]
-                    font-semibold
-                    whitespace-nowrap
-                  "
-                  style={{
-                    backgroundColor: member.accentBg,
-                    color: member.accent,
-                  }}
-                >
-                  {member.role}
-                </span>
+                  <div
+                    className="mx-auto mt-2 inline-flex rounded-full px-2.5 py-1 text-[11px] font-semibold"
+                    style={{
+                      backgroundColor: member.accentBg,
+                      color: member.accent,
+                    }}
+                  >
+                    {member.role}
+                  </div>
+                </div>
+
+                {/* Bottom Accent */}
+                <div
+                  className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
+                  style={{ backgroundColor: member.accent }}
+                />
               </motion.div>
             ))}
           </div>
