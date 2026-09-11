@@ -417,38 +417,10 @@ export default function Programs() {
         {/* ================= PROGRAM CARDS ================= */}
         <div className="relative mt-12">
           {/* LEFT FADE */}
-          <div
-            aria-hidden="true"
-            className={`
-              pointer-events-none
-              absolute left-0 top-0 bottom-0
-              w-10 sm:w-20
-              z-10
-              bg-gradient-to-r
-              from-[#FFF9F3]
-              via-[#FFF9F3]/80
-              to-transparent
-              transition-opacity duration-300
-              ${scrollState.atStart ? "opacity-0" : "opacity-100"}
-            `}
-          />
+          
 
           {/* RIGHT FADE */}
-          <div
-            aria-hidden="true"
-            className={`
-              pointer-events-none
-              absolute right-0 top-0 bottom-0
-              w-10 sm:w-20
-              z-10
-              bg-gradient-to-l
-              from-[#FFF9F3]
-              via-[#FFF9F3]/80
-              to-transparent
-              transition-opacity duration-300
-              ${scrollState.atEnd ? "opacity-0" : "opacity-100"}
-            `}
-          />
+          
 
           <div
             ref={trackRef}
