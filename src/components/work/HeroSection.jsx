@@ -79,15 +79,18 @@ export default function workHero() {
                 leading-[1.08]
                 font-semibold
                 text-[#3E4095]
-                max-w-md
-                sm:max-w-xl
+                max-w-[190px]
+                sm:max-w-md
               "
             >
               Four kinds of work,
               <br />
               one purpose — a healthier{" "}
-              <span className="text-[#00A85A]  max-w-md
-                sm:max-w-xl">neighbourhood.</span>
+              {/* <span className="text-[#00A85A]  max-w-md
+                sm:max-w-xl">neighbourhood.</span> */}
+              <span className="inline-block max-w-[200px] sm:max-w-md text-[#00A85A]">
+                neighbourhood.
+              </span>
             </h1>
 
             {/* Description */}
@@ -110,7 +113,8 @@ export default function workHero() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link                to="/events"
+              <Link
+                to="/events"
                 className="
                   px-7
                   py-3.5
@@ -131,7 +135,7 @@ export default function workHero() {
               </Link>
 
               <Link
-              to="/about"
+                to="/about"
                 className="
     inline-flex
     items-center
