@@ -79,7 +79,7 @@ export default function workHero() {
                 leading-[1.08]
                 font-semibold
                 text-[#3E4095]
-                max-w-[190px]
+                max-w-[200px]
                 sm:max-w-md
               "
             >
