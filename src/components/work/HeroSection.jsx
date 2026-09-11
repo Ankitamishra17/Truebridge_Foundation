@@ -79,7 +79,8 @@ export default function workHero() {
                 leading-[1.08]
                 font-semibold
                 text-[#3E4095]
-                max-w-2xl
+                max-w-md
+                sm:max-w-xl
               "
             >
               Four kinds of work,

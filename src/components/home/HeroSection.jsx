@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 z-0">
           <picture>
             <source
-              media="(max-width: 639px)"
+              media="(max-width: 768px)"
               srcSet="/home_bannerMobile.png"
             />
 

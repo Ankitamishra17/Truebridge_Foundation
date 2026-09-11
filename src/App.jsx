@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar.jsx'
 import Footer from './components/layout/Footer.jsx'
 import WhatsAppButton from './components/common/WhatsAppButton.jsx'
 import CallButton from './components/common/CallButton.jsx'
+import ScrollToTopButton from './components/common/ScrollToTopButton.jsx'
 import ScrollToTop from './components/common/ScrollToTop.jsx'
 
 import Home from './pages/Home.jsx'
@@ -39,8 +40,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col font-body">
 
-      {/* Scroll to top on route change */}
-      <ScrollToTop />
+    <ScrollToTop/>
 
       {/* Navbar */}
       <Navbar />
@@ -88,6 +88,8 @@ export default function App() {
       {/* Floating Buttons */}
       <WhatsAppButton />
       <CallButton />
+        {/* Scroll to top */}
+      <ScrollToTopButton />
 
     </div>
   )
