@@ -25,7 +25,7 @@ const team = [
   {
     name: "Neelam Bansal",
     role: "Executive Member",
-    image: "/Neelam_Bansal.png",
+    image: "/Neelam_Bansal.jpeg",
     accent: "#00a85a",
     accentBg: "#E8F7EF",
   },
