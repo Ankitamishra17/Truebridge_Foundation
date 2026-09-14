@@ -15,6 +15,7 @@ import {
   Sparkles,
   X,
   Images,
+   UsersRound,
 } from "lucide-react";
 
 const EVENTS_PER_PAGE = 6;
@@ -184,6 +185,18 @@ const events = [
     icon: Award,
     color: "#3E4095",
   },
+  {
+  id: 17,
+  date: "14 Sep 2026",
+  title: "Ganesh Chaturthi – Women Employment & Self-Reliance Initiative",
+  category: "Women Empowerment",
+  location: "Jyoti Nagar, Shahdara, Delhi",
+  description:
+    "On the auspicious occasion of Ganesh Chaturthi, Truebridge Empowerment Echo Foundation is launching a women employment initiative to support poor, needy and widowed women in becoming self-reliant. Selected women will be provided sewing machines along with training, guidance and support, helping them earn a dignified livelihood from home and strengthen their families financially.",
+  images: ["/ganesh-chaturthi.jpg"],
+  icon: UsersRound,
+  color: "#FF6634",
+},
 ];
 
 const categories = [
