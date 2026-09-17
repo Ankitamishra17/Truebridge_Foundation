@@ -16,6 +16,13 @@ const team = [
     accentBg: "#E8F7EF",
   },
   {
+    name: "Sushma Dubey",
+    role: "Treasurer",
+    image: "/Sushma_dubey.png",
+    accent: "#ff6634",
+    accentBg: "#FFF0EB",
+  },
+  {
     name: "Basant Verma",
     role: "Executive Member",
     image: "/Basant.jpeg",
@@ -29,13 +36,7 @@ const team = [
     accent: "#00a85a",
     accentBg: "#E8F7EF",
   },
-  {
-    name: "Sushma Dubey",
-    role: "Treasurer",
-    image: "/Sushma_dubey.png",
-    accent: "#ff6634",
-    accentBg: "#FFF0EB",
-  },
+  
 ];
 
 export default function OurLeadership() {

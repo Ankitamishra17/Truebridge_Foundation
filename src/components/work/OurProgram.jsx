@@ -11,6 +11,10 @@ import {
   ChevronRight,
   ShieldCheck,
   HeartHandshake,
+  UsersRound,
+  Scale,
+  Stethoscope,
+  Activity,
 } from "lucide-react";
 
 const programs = [
@@ -103,6 +107,53 @@ const programs = [
     lede: "Round-the-clock support for Kanwar pilgrims",
     body: "We provide 24×7 first aid and dressing support, acupressure therapy and wellness assistance for Kanwar pilgrims during their journey. The service is provided on Yamuna Wazirabad Road, Delhi, in collaboration with Kshatriya Shiv Kanwar Seva Samiti (Regd.), with a focus on serving pilgrims with care and support.",
   },
+  // 10. Animal Care & Medicine Support
+{
+  icon: PawPrint,
+  iconBg: "#E8F7EF",
+  iconColor: "#00A85A",
+  linkColor: "#00A85A",
+  title: "Animal Care & Medicine Support",
+  lede: "Supporting animals in need",
+  body:
+    "We aim to support sick, injured and needy animals, including cows, by helping with basic healthcare and medicine assistance. Through community support and donations, we work towards promoting compassion and better care for animals.",
+},
+
+// 11. Legal Guidance & Women Empowerment
+{
+  icon: Scale,
+  iconBg: "#EEEEFA",
+  iconColor: "#3E4095",
+  linkColor: "#3E4095",
+  title: "Legal Guidance & Women Empowerment",
+  lede: "Supporting women through awareness and guidance",
+  body:
+    "We aim to connect women and individuals in need with appropriate legal guidance, rights awareness and support through qualified legal professionals and community resources. Our initiative encourages women to understand their rights and move towards greater confidence and self-reliance.",
+},
+
+// 12. Medical Assistance & Patient Support
+{
+  icon: Stethoscope,
+  iconBg: "#FFF0EB",
+  iconColor: "#FF6634",
+  linkColor: "#FF6634",
+  title: "Medical Assistance & Patient Support",
+  lede: "Supporting patients and families in need",
+  body:
+    "We seek to support eligible patients and families facing serious health conditions, including cancer, heart disease and other chronic illnesses. Donations and community support can help us explore medical assistance opportunities and connect people with appropriate healthcare resources.",
+},
+
+// 13. Health Awareness & Testing Guidance
+{
+  icon: Activity,
+  iconBg: "#E8F7EF",
+  iconColor: "#00A85A",
+  linkColor: "#00A85A",
+  title: "Health Awareness & Testing Guidance",
+  lede: "Promoting awareness and informed health decisions",
+  body:
+    "We promote awareness about tuberculosis, anaemia, thalassemia and HIV prevention. Our initiatives aim to share reliable health information, encourage timely testing and guide individuals towards qualified healthcare professionals and appropriate testing services.",
+},
 ];
 
 export default function Programs() {

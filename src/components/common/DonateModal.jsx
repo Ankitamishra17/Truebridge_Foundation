@@ -1,202 +1,284 @@
-
-import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { X, Heart, CheckCircle2, Loader2, User, Mail, Phone, MapPin } from 'lucide-react'
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  X,
+  Heart,
+  QrCode,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Copy,
+  Check,
+} from "lucide-react";
 
 export default function DonateModal({ open, onClose }) {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', address: '' })
-  const [status, setStatus] = useState('idle') // idle | sending | sent
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
 
+  const [copied, setCopied] = useState(false);
+
+  // Close modal with Escape key
   useEffect(() => {
-    if (!open) return
-    const onKey = (e) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (open) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
-  }, [open, onClose])
 
-  const resetAndClose = () => {
-    onClose()
-    setTimeout(() => {
-      setStatus('idle')
-      setForm({ name: '', email: '', phone: '', address: '' })
-    }, 300)
-  }
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "auto";
+    };
+  }, [open, onClose]);
 
-  const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Wire this up to your payment gateway / backend of choice
-    setStatus('sending')
-    setTimeout(() => setStatus('sent'), 900)
-  }
+    setForm((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("Donation enquiry:", form);
+
+    alert(
+      "Thank you for your interest. Please scan the QR code to donate."
+    );
+  };
+
+  const donationText =
+    "I would like to support Truebridge Empowerment Echo Foundation through a donation.";
+
+  const handleCopyDonationText = async () => {
+    try {
+      await navigator.clipboard.writeText(donationText);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Copy failed:", error);
+    }
+  };
+
+  const handleClose = () => {
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+    });
+
+    setCopied(false);
+    onClose();
+  };
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-3 sm:p-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.22 }}
-          className="fixed inset-0 z-[100] bg-[#3e4095]/70 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={resetAndClose}
+          onClick={handleClose}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 16 }}
+            className="relative w-full max-w-2xl rounded-2xl bg-white p-4 shadow-2xl sm:p-5"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 8 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[420px] bg-white rounded-2xl shadow-2xl overflow-hidden"
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.25 }}
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* header */}
-            <div className="relative bg-gradient-to-br from-[#00a85a] to-[#3e4095] px-6 pt-5 pb-6">
-              <button
-                onClick={resetAndClose}
-                aria-label="Close"
-                className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <X size={18} />
-              </button>
-              <span className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
-                <Heart size={18} className="text-white fill-white" />
-              </span>
-              <h2 className="mt-3 font-display font-semibold text-[19px] text-white">
-                Make a Donation
-              </h2>
-              <p className="text-[13px] text-white/70 mt-0.5">
-                Fill in your details and we'll take it from there.
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={handleClose}
+              aria-label="Close donation modal"
+              className="absolute right-3 top-3 rounded-full p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-[#3e4095]"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Header */}
+            <div className="pr-8">
+              <div className="mb-1 flex items-center gap-2">
+                <div className="rounded-full bg-[#fff0eb] p-2">
+                  <Heart
+                    size={19}
+                    className="fill-[#ff6634] text-[#ff6634]"
+                  />
+                </div>
+
+                <h2 className="text-xl font-bold text-[#3e4095] sm:text-2xl">
+                  Support Our Causes
+                </h2>
+              </div>
+
+              <p className="text-xs leading-5 text-gray-600 sm:text-sm">
+                Your support helps us serve people, animals and communities
+                in need.
               </p>
             </div>
 
-            <div className="px-6 py-5">
-              <AnimatePresence mode="wait">
-                {status === 'sent' ? (
-                  <motion.div
-                    key="sent"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex flex-col items-center text-center py-6"
-                  >
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
-                      className="w-14 h-14 rounded-full bg-[#E6F6EF] flex items-center justify-center"
-                    >
-                      <CheckCircle2 size={28} className="text-[#00a85a]" />
-                    </motion.span>
-                    <h3 className="mt-4 font-display text-[19px] font-semibold text-[#3e4095]">
-                      Thank you, {form.name.split(' ')[0] || 'friend'}!
-                    </h3>
-                    <p className="mt-2 text-[13.5px] text-[#64748B] max-w-xs">
-                      We've received your details and someone from our team will reach
-                      out to {form.email || 'you'} shortly.
-                    </p>
-                    <button
-                      onClick={resetAndClose}
-                      className="mt-5 text-[14px] font-semibold text-[#ff6634] hover:underline"
-                    >
-                      Close
-                    </button>
-                  </motion.div>
-                ) : (
-                  <motion.form
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    onSubmit={handleSubmit}
-                    className="space-y-3.5"
-                  >
-                    <div className="relative">
-                      <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
-                      <input
-                        name="name"
-                        required
-                        value={form.name}
-                        onChange={handleChange}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
-                        placeholder="Full name"
-                      />
-                    </div>
+            {/* QR Section */}
+            <div className="mt-4 flex items-center gap-3 rounded-xl bg-[#f7f7ff] p-3 sm:gap-5 sm:p-4">
+              <div className="shrink-0 rounded-lg bg-white p-1.5 shadow-sm">
+                <img
+                  src="/donation.jpeg"
+                  alt="Donation QR Code"
+                  className="h-28 w-28 object-contain sm:h-32 sm:w-32"
+                />
+              </div>
 
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="relative">
-                        <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
-                        <input
-                          name="email"
-                          type="email"
-                          required
-                          value={form.email}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
-                          placeholder="Email"
-                        />
-                      </div>
-                      <div className="relative">
-                        <Phone size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
-                        <input
-                          name="phone"
-                          required
-                          value={form.phone}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-2 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all"
-                          placeholder="Phone"
-                        />
-                      </div>
-                    </div>
+              <div className="min-w-0">
+                <div className="mb-1 flex items-center gap-1.5">
+                  <QrCode size={17} className="text-[#3e4095]" />
 
-                    <div className="relative">
-                      <MapPin size={15} className="absolute left-3.5 top-3 text-[#94A3B8]" />
-                      <textarea
-                        name="address"
-                        required
-                        rows={2}
-                        value={form.address}
-                        onChange={handleChange}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-[#EDF1F5] bg-white text-[14px] text-[#3e4095] focus:border-[#00a85a] focus:ring-4 focus:ring-[#00a85a]/10 outline-none transition-all resize-none"
-                        placeholder="Address"
-                      />
-                    </div>
+                  <h3 className="text-base font-bold text-[#3e4095]">
+                    Scan to Donate
+                  </h3>
+                </div>
 
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff6634] text-white text-[14.5px] font-semibold hover:brightness-105 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
-                    >
-                      {status === 'sending' ? (
-                        <>
-                          <Loader2 size={16} className="animate-spin" />
-                          Processing...
-                        </>
-                      ) : (
-                        <>
-                          <Heart size={14} className="fill-white" />
-                          Donate Now
-                        </>
-                      )}
-                    </button>
+                <p className="text-xs leading-5 text-gray-600 sm:text-sm">
+                  Scan the QR code using your UPI app to support our
+                  healthcare, women empowerment and animal care initiatives.
+                </p>
 
-                    <p className="text-[11.5px] text-center text-[#94A3B8]">
-                      Secure • 100% goes toward our programs
-                    </p>
-                  </motion.form>
-                )}
-              </AnimatePresence>
+                <button
+                  type="button"
+                  onClick={handleCopyDonationText}
+                  className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#ff6634] hover:underline"
+                >
+                  {copied ? (
+                    <>
+                      <Check size={14} />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={14} />
+                      Copy Donation Message
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
+
+            {/* Donor Form */}
+            <form onSubmit={handleSubmit} className="mt-4">
+              <h3 className="mb-3 text-base font-bold text-[#3e4095]">
+                Donor Details
+              </h3>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {/* Full Name */}
+                <div className="relative">
+                  <User
+                    size={16}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Full Name"
+                    required
+                    className="w-full rounded-lg border border-gray-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#3e4095]"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <Mail
+                    size={16}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                    required
+                    className="w-full rounded-lg border border-gray-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#3e4095]"
+                  />
+                </div>
+
+                {/* Phone */}
+                <div className="relative">
+                  <Phone
+                    size={16}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Phone Number"
+                    required
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number"
+                    className="w-full rounded-lg border border-gray-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#3e4095]"
+                  />
+                </div>
+
+                {/* Address */}
+                <div className="relative">
+                  <MapPin
+                    size={16}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="address"
+                    value={form.address}
+                    onChange={handleChange}
+                    placeholder="City / Address"
+                    className="w-full rounded-lg border border-gray-200 py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#3e4095]"
+                  />
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-[#ff6634] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#00a85a]"
+              >
+                <Heart size={17} />
+                Submit Donation 
+              </button>
+
+              <p className="mt-2 text-center text-[11px] leading-4 text-gray-500">
+                Donation enquiry form only. Please use the QR code to make
+                your donation.
+              </p>
+            </form>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
